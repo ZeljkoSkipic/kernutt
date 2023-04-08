@@ -1,0 +1,441 @@
+.single-services {
+	.spacer.gfield {
+		display: none!important;
+	}
+    font-family: "AvenirNext", sans-serif;
+
+    p {
+        padding: 0;
+    }
+	.service-top__right p:not(:last-of-type) {
+		padding-bottom: 18px;
+	}
+    h1,
+    h2,
+    h3 {
+        font-size: 25px;
+        color: #B26C26;
+        font-weight: 600;
+        padding: 0;
+    }
+	ul {
+		list-style: disc;
+		padding-left: 20px;
+	}
+    .container {
+        max-width: 1920px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 56px;
+
+        @media (max-width: 980px) {
+            padding: 0 20px;
+        }
+    }
+
+    // Service Hero
+
+    .service-hero {
+        height: 254px;
+        margin-top: 150px;
+
+        @media (max-width: 980px) {
+            margin-top: 190px;
+        }
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    h1 {
+        margin-top: 35px;
+        margin-bottom: 12px;
+    }
+
+    // Service Top
+
+    .service-top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 35px;
+        flex-wrap: wrap;
+
+        &__left {
+            flex: 0 0 50%;
+            max-width: 50%;
+            width: 100%;
+            padding-right: 35px;
+
+            @media (max-width: 980px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding-right: 0;
+                padding-bottom: 30px;
+            }
+
+            p {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 22px;
+
+                &:not(:last-child) {
+                    margin-bottom: 12px;
+                }
+
+            }
+        }
+
+        &__right {
+            flex: 0 0 50%;
+            max-width: 50%;
+            width: 100%;
+
+            @media (max-width: 980px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    }
+.services-template-single-services-partner  .service-top__right, .form-service__related {
+	@media (min-width: 1250px) {
+		flex: 20% 0 0!important;
+	}
+}
+    .service-top__related-wrapper,
+    .service-top__right,
+    .form-service__related {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+
+        h3 {
+            font-size: 25px;
+            color: #B26C26;
+            font-weight: 600;
+            margin-bottom: 12px;
+            padding: 0;
+        }
+		br {
+			display: none;
+		}
+        a:link,
+        a:visited {
+            display: block;
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 400;
+            color: #000;
+        }
+		a.see_all {
+            margin-top: 18px;
+			&:hover {
+				font-weight: 700;
+			}
+		}
+        a:hover {
+            color: #B26C26;
+        }
+    }
+
+
+    .service-top__related-left {
+        flex: 0 0 50%;
+        max-width: 50%;
+        width: 100%;
+        padding-right: 35px;
+		a {
+			&:hover {
+				font-weight: 700;
+			}
+		}
+        @media (max-width: 1110px) {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding-right: 0;
+            padding-bottom: 30px;
+        }
+
+        .service-top__related-description {
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: 400;
+        }
+    }
+
+    .service-top__related-right {
+        flex: 0 0 50%;
+        max-width: 50%;
+        width: 100%;
+		a {
+			&:hover {
+				font-weight: 700;
+			}
+		}
+        @media (max-width: 1110px) {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    .service-top__quote,
+    .form-service__quote {
+        margin-bottom: 35px;
+
+        &-text {
+            font-family: 'Garamound';
+            font-style: italic;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 19px;
+            margin-bottom: 7px;
+			padding-bottom: 10px!important;
+        }
+
+        &-author {
+            font-weight: 400;
+            font-size: 16px;
+        }
+    }
+	.form-service__quote-author {
+		margin-left: 17px;
+	}
+
+    // Service Form
+
+    .form-service {
+        background-color: #ece7d4;
+
+        &__inner {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &__left {
+            flex: 0 0 726px;
+            max-width: 726px;
+            width: 100%;
+            padding: 35px 35px 35px 0;
+
+            @media (max-width: 1110px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding: 20px 0;
+            }
+        }
+
+        &__image {
+            width: 100%;
+            height: 250px;
+            margin-bottom: 12px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+
+        &__description {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+            color: #3B3733;
+        }
+
+        &__right {
+            flex: 1;
+            padding: 35px 35px 35px 0;
+
+            @media (max-width: 1110px) {
+                padding: 0;
+            }
+
+            h2 {
+                margin-bottom: 12px;
+            }
+        }
+
+        &__form {
+
+            .gform_wrapper.gravity-theme .gform_fields {
+                position: relative;
+                gap: 12px;
+
+                input,
+                textarea {
+                    font-family: inherit;
+                    font-size: 16px;
+                    font-weight: 500;
+                    padding: 13px;
+                    color: #ADADAD;
+                }
+            }
+
+            .ginput_container_textarea+.gfield_description {
+                font-size: 12px;
+                font-weight: 500;
+                padding-top: 12px;
+                position: absolute;
+                bottom: -24px;
+            }
+
+            .gform_wrapper.gravity-theme .gform_footer {
+                padding: 0;
+                margin: 0;
+            }
+
+            .gform_footer button[type="submit"] {
+                margin: 0!important;
+                margin-left: auto!important;
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 13px;
+                color: #fff;
+                background-color: #B26C26;
+                padding: 10px 12px;
+                border: none;
+                border-radius: 10px;
+
+                &::after {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+
+
+// Partners in Charge changes
+
+.services-template-single-services-partner {
+    .service-top {
+
+        &__left {
+            flex: 0 0 80%;
+            max-width: 80%;
+
+            @media (max-width: 1110px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-bottom: 18px;
+            }
+        }
+
+        &__right {
+            display: block;
+            flex: 1;
+            max-width: 100%;
+        }
+    }
+
+    // Form Service
+
+    .form-service {
+        padding: 35px 0;
+        @media (max-width: 610px) {
+            padding: 20px 0;
+        }
+
+        h2 {
+            margin-bottom: 12px;
+        }
+
+        &__left {
+            flex: 0 0 350px;
+            max-width: 350px;
+            width: 100%;
+            padding: 0;
+            padding-right: 35px;
+
+            @media (max-width: 1250px) {
+                flex: 0 0 50%;
+                max-width: 50%;
+                margin-bottom: 18px;
+            }
+
+            @media (max-width: 610px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding-right: 0px;
+            }
+        }
+
+        &__right {
+            padding: 0;
+            padding-right: 35px;
+
+            @media (max-width: 1250px) {
+                flex: 0 0 80%;
+                max-width: 80%;
+            }
+
+            @media (max-width: 960px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding-right: 0;
+                margin-bottom: 18px;
+            }
+        }
+
+        &__image {
+            width: 100%;
+            height: 350px;
+            margin-bottom: 0;
+        }
+
+        &__quote {
+            flex: 1;
+            padding-right: 35px;
+            margin-bottom: 0;
+
+            @media (max-width: 1250px) {
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding-right: 0;
+            }
+
+            @media (max-width: 610px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-bottom: 18px;
+            }
+        }
+
+        &__related {
+            display: block;
+            flex: 1;
+        }
+    }
+}
+
+/* Archive */
+
+.archive-services {
+    margin-top: 156px;
+    font-family: "AvenirNext", sans-serif;
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 1fr;
+        gap: 18px;
+        max-width: 1140px;
+        margin: 0 auto 35px;
+        padding: 0 20px;
+
+        @media (max-width: 980px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 680px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

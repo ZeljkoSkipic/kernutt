@@ -1,0 +1,10 @@
+.page-template-page-office {
+	.tm_gallery {
+		figure {
+			max-width: 32%;
+			&:not(:nth-child(3n + 3)) {
+				margin-right: 2%;
+			}
+		}
+	}
+}

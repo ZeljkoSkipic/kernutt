@@ -1,0 +1,144 @@
+#main-footer {
+	* {
+		font-family: "AvenirNext";
+	}
+	#footer-widgets {
+		padding-top: 44px;
+		padding-bottom: 35px;
+	}
+	.footer-widget {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 0;
+	}
+	.container {
+		max-width: 1600px;
+		width: 90%;
+	}
+	.et_pb_widget.fwidget {
+		margin-bottom: 0!important;
+	}
+	.footer_title {
+		font-size: 16px;
+		font-weight: 600;
+		color: #f7d21e!important;
+		padding-bottom: 0;
+	}
+	.footer_logos {
+		img {
+			height: 83px;
+			object-fit: contain;
+			object-position: left;
+		}
+	}
+	.footer_about {
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 20px;
+		max-width: 420px;
+		a {
+			font-weight: 700;
+		}
+	}
+	.footer_bdo {
+		margin-top: 44px;
+		margin-bottom: 0;
+		img {
+			height: 50px;
+			object-fit: contain;
+			object-position: left;
+		}
+		.wp-block-column:first-child {
+			flex-basis: 100px!important;
+			width: 100px;
+		}
+		.wp-block-column:not(:first-child) {
+			flex-basis: calc(100% - 135px)!important;
+		}
+	}
+	.footer-widget:not(:first-child) {
+		.widget_text {
+			margin-bottom: 18px!important;
+			p {
+				font-size: 16px;
+				line-height: 20px;
+				font-weight: 500;
+			}
+			a {
+				font-weight: 700;
+			}
+		}
+	}
+	.wp-block-social-links {
+		list-style: none;
+		@media (min-width: 768px) {
+			margin-top: 17px;
+		}
+		li {
+			padding-left: 0;
+			&::before {
+				display: none;
+			}
+			a {
+				height: 32px;
+				width: 32px;
+				background-color: #f7d21e;
+				border-radius: 4px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				&:before {
+					font-size: 16px;
+					line-height: 32px;
+					display: block;
+					color: #2d2a26;
+					transition: color .3s;
+					position: relative;
+					z-index: 10;
+					font-family: ETmodules;
+					speak: none;
+					font-style: normal;
+					font-weight: 400;
+					-webkit-font-feature-settings: normal;
+					font-feature-settings: normal;
+					font-variant: normal;
+					text-transform: none;
+					line-height: 1;
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+					text-shadow: 0 0;
+					direction: ltr;
+				}
+			}
+			svg {
+				display: none;
+			}
+			&.wp-social-link-linkedin {
+				a:before {
+					content: "\E09D";
+				}
+			}
+			&.wp-social-link-facebook {
+				a:before {
+					content: "\e093";
+				}
+			}
+			&.wp-social-link-instagram {
+				a:before {
+					content: "\e09a";
+				}
+			}
+		}
+	}
+}
+#footer-bottom {
+	display: none;
+}
+@media(max-width: 767px) {
+	#footer-widgets {
+		padding-bottom: 0;
+	}
+#footer-widgets .footer-widget:nth-child(n) {
+		margin-bottom: 0!important;
+	}
+}

@@ -1,0 +1,25 @@
+.nav-links {
+    
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+
+    .page-numbers {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        color: #FFF;
+        background-color: #3b3733;
+        
+        &:not(:last-child) {
+            margin-right: 5px;
+        }
+
+        &.current {
+            color: #f7d21e;
+        }
+
+    }
+}
