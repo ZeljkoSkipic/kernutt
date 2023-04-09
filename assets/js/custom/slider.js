@@ -10,8 +10,3 @@ window.addEventListener('DOMContentLoaded', () => {
         groupAll: true
       });
 })
-
-
-
-
-

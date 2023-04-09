@@ -388,7 +388,7 @@
         },
         {
             "key": "field_63df0c6ca7b3e",
-            "label": "Related Author Posts",
+            "label": "Related Posts Category",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -432,10 +432,10 @@
         },
         {
             "key": "field_63df0c38a7b3d",
-            "label": "Select User Posts",
-            "name": "related_author_posts",
+            "label": "Related Posts Category",
+            "name": "posts_category",
             "aria-label": "",
-            "type": "user",
+            "type": "taxonomy",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -444,10 +444,14 @@
                 "class": "",
                 "id": ""
             },
-            "role": "",
-            "return_format": "array",
-            "multiple": 0,
-            "allow_null": 0
+            "taxonomy": "category",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "select",
+            "allow_null": 0,
+            "multiple": 0
         },
         {
             "key": "field_6409ca3ff2c51",
@@ -502,5 +506,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680800622
+    "modified": 1681044316
 }

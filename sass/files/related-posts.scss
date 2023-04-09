@@ -132,3 +132,63 @@
 		}
 	}
 }
+
+.posts_grid {
+	max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 35px 56px;
+}
+.posts_grid_inner {
+	display: flex;
+	flex-wrap: wrap;
+	.posts_grid_item {
+		@include limbo-min {
+			width: calc(25% - 13.5px);
+			&:not(:nth-child(4n + 4)) {
+				margin-right: 18px;
+			}
+		}
+		@include tab-only {
+			width: 49%;
+			&:nth-child(odd) {
+				margin-right: 2%;
+			}
+		}
+
+		margin-bottom: 30px;
+		border: 1px solid #333;
+		.pg-image {
+			height: 220px;
+		}
+		img {
+			height: 100%;
+    		width: 100%;
+			object-fit: cover;
+		}
+		.heading-secondary {
+			padding: 30px 20px 0;
+			font-size: 16px;
+			line-height: 20px;
+			font-weight: 600;
+			margin-bottom: 4px;
+			color: #B26C26;
+		}
+		.cats {
+			padding: 0 20px 5px;
+			a {
+				transition: .3s all;
+				color: #000;
+				margin-right: 8px;
+				&:hover {
+					color: #B26C26;
+					font-weight: 700;
+				}
+			}
+		}
+		.entry-content {
+			padding: 0 20px 20px;
+    		line-height: 22px;
+		}
+	}
+}

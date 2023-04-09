@@ -57,29 +57,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_6386551ef3685",
-            "label": "Quote",
-            "name": "quote",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "rows": 6,
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_63871c20cb039",
-            "label": "Quote Person",
-            "name": "quote_person",
+            "key": "field_6387198dab985",
+            "label": "Services Title",
+            "name": "services_title",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -95,6 +75,69 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_63871980ab984",
+            "label": "Services",
+            "name": "services",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Service",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_63871996ab986",
+                    "label": "Text",
+                    "name": "service",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_63871980ab984"
+                },
+                {
+                    "key": "field_6391d3748a276",
+                    "label": "Link",
+                    "name": "service_link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_63871980ab984"
+                }
+            ]
         },
         {
             "key": "field_63871d803aa5e",
@@ -233,7 +276,7 @@
             "label": "Team Caption",
             "name": "team_caption",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -243,14 +286,14 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 0
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_6391d1949627b",
-            "label": "Services",
+            "label": "Quote",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -266,9 +309,29 @@
             "endpoint": 0
         },
         {
-            "key": "field_6387198dab985",
-            "label": "Services Title",
-            "name": "services_title",
+            "key": "field_6386551ef3685",
+            "label": "Quote",
+            "name": "quote",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 6,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_63871c20cb039",
+            "label": "Quote Person",
+            "name": "quote_person",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -286,11 +349,11 @@
             "append": ""
         },
         {
-            "key": "field_63871980ab984",
-            "label": "Services",
-            "name": "services",
+            "key": "field_6432927ea35f7",
+            "label": "Form",
+            "name": "",
             "aria-label": "",
-            "type": "repeater",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -299,54 +362,43 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Add Service",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_63871996ab986",
-                    "label": "Text",
-                    "name": "service",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_63871980ab984"
-                },
-                {
-                    "key": "field_6391d3748a276",
-                    "label": "Link",
-                    "name": "service_link",
-                    "aria-label": "",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "parent_repeater": "field_63871980ab984"
-                }
-            ]
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6432933e337f5",
+            "label": "Pick a Form",
+            "name": "form_id",
+            "aria-label": "",
+            "type": "forms",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "allow_null": 0,
+            "multiple": 0
+        },
+        {
+            "key": "field_6391d1d736b4d",
+            "label": "Posts",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 1
         },
         {
             "key": "field_638f90503ea26",
@@ -369,23 +421,6 @@
             "append": ""
         },
         {
-            "key": "field_6391d1d736b4d",
-            "label": "Posts",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 1
-        },
-        {
             "key": "field_638f8cd256618",
             "label": "Posts Category",
             "name": "posts_category",
@@ -400,7 +435,7 @@
                 "id": ""
             },
             "taxonomy": "category",
-            "add_term": 1,
+            "add_term": 0,
             "save_terms": 0,
             "load_terms": 0,
             "return_format": "id",
@@ -427,5 +462,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678361573
+    "modified": 1681044179
 }
