@@ -157,15 +157,14 @@ if ($selected_user) {
 				wp_reset_postdata();
 				?>
 
-			<?php if ($author_posts->max_num_pages > 1) : ?>
-
-				<div class="load_more_container">
-				<a data-total="<?php echo $author_posts->found_posts; ?>" data-user="<?php echo $selected_user['ID']; ?>" class="author-posts-load-more et_pb_button" href="#"><?php esc_html_e('Load More', 'kernutt'); ?></a>
-				</div>
-
-			<?php endif; ?>
-
 		</div>
+		<?php if ($author_posts->max_num_pages > 1) : ?>
+
+		<div class="load_more_container">
+		<a data-total="<?php echo $author_posts->found_posts; ?>" data-user="<?php echo $selected_user['ID']; ?>" class="author-posts-load-more et_pb_button" href="#"><?php esc_html_e('Load More', 'kernutt'); ?></a>
+		</div>
+
+		<?php endif; ?>
 </div>
 
 <?php endif; ?>

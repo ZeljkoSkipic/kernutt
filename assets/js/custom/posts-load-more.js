@@ -4,7 +4,7 @@ jQuery(function ($) {
 
   // DOM
   const loadMore = $('.author-posts-load-more');
-  const wrapper = $('.author-posts__items');
+  const wrapper = $('.posts_grid_inner');
 
   // Vars
 
@@ -28,11 +28,23 @@ jQuery(function ($) {
     let offset =  wrapper.children().length;
     let user = loadMore.data('user');
     let total = loadMore.data('total');
+    let category = loadMore.data('category');
 
-    data.append('action', 'author_posts_load_more');
+    data.append('action', 'posts_load_more');
     data.append('nonce', theme.nonce);
     data.append('offset', offset);
-    data.append('user', user);
+   
+
+    if(user) {
+      data.append('user', user);
+    }
+    else if(category) {
+      data.append('cat', category);
+    }
+    else {
+      return false;
+    }
+
     controller = new AbortController();
     let signal = controller.signal;
 

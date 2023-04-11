@@ -7,7 +7,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 jQuery(function ($) {
   // DOM
   var loadMore = $('.author-posts-load-more');
-  var wrapper = $('.author-posts__items');
+  var wrapper = $('.posts_grid_inner');
 
   // Vars
 
@@ -23,7 +23,7 @@ jQuery(function ($) {
   }
   function _loadPosts() {
     _loadPosts = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
-      var data, offset, user, total, signal, response, authorPosts;
+      var data, offset, user, total, category, signal, response, authorPosts;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -35,29 +35,47 @@ jQuery(function ($) {
             offset = wrapper.children().length;
             user = loadMore.data('user');
             total = loadMore.data('total');
-            data.append('action', 'author_posts_load_more');
+            category = loadMore.data('category');
+            data.append('action', 'posts_load_more');
             data.append('nonce', theme.nonce);
             data.append('offset', offset);
+            if (!user) {
+              _context.next = 14;
+              break;
+            }
             data.append('user', user);
+            _context.next = 19;
+            break;
+          case 14:
+            if (!category) {
+              _context.next = 18;
+              break;
+            }
+            data.append('cat', category);
+            _context.next = 19;
+            break;
+          case 18:
+            return _context.abrupt("return", false);
+          case 19:
             controller = new AbortController();
             signal = controller.signal;
-            _context.next = 14;
+            _context.next = 23;
             return fetch(theme.ajax_admin, {
               method: 'POST',
               body: data,
               signal: signal
             });
-          case 14:
+          case 23:
             response = _context.sent;
             if (response.ok) {
-              _context.next = 17;
+              _context.next = 26;
               break;
             }
             throw new Error("HTTP error! status: ".concat(response.status));
-          case 17:
-            _context.next = 19;
+          case 26:
+            _context.next = 28;
             return response.text();
-          case 19:
+          case 28:
             authorPosts = _context.sent;
             if (authorPosts) {
               wrapper.append(authorPosts);
@@ -66,7 +84,7 @@ jQuery(function ($) {
                 loadMore.remove();
               }
             }
-          case 21:
+          case 30:
           case "end":
             return _context.stop();
         }
