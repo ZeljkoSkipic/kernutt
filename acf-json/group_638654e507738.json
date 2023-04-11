@@ -366,6 +366,26 @@
             "endpoint": 0
         },
         {
+            "key": "field_6435434c99abf",
+            "label": "Form Title",
+            "name": "form_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Let's talk about your business!",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6432933e337f5",
             "label": "Pick a Form",
             "name": "form_id",
@@ -401,9 +421,9 @@
             "endpoint": 1
         },
         {
-            "key": "field_638f90503ea26",
+            "key": "field_643539dce8e81",
             "label": "Posts Title",
-            "name": "industry_posts_title",
+            "name": "related_posts_title",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -462,5 +482,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681044179
+    "modified": 1681212258
 }

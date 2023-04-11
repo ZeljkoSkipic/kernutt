@@ -25,3 +25,11 @@
 		font-weight: 600;
     }
 }
+
+.services_industries {
+	a {
+		&:hover {
+			font-weight: 700!important;
+		}
+	}
+}

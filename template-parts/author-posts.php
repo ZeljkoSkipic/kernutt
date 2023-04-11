@@ -9,12 +9,12 @@ $output = '';
 
 ?>
 
-<div class="author-posts__item">
+<div class="posts_grid_item">
     <div class="author-posts__item-image-date">
 
         <?php if ($image) : ?>
 
-            <div class="author-posts__item-image">
+            <div class="pg-image">
                 <a href="<?php the_permalink(get_the_ID()); ?>"><?php echo $image; ?> </a>
             </div>
 

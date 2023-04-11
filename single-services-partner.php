@@ -17,18 +17,6 @@ $form_image_title = get_field('form_image_title');
 $form_image = get_field('form_image');
 $form_title = get_field('form_title');
 $form_id = get_field('form_id');
-$selected_user = get_field('related_author_posts');
-$related_posts_title = get_field('related_posts_title');
-
-if ($selected_user) {
-    $author_posts = new WP_Query(array(
-        'post_type'         => 'post',
-        'posts_per_page'    => 4,
-        'author'            => $selected_user['ID'],
-        'orderby'           => 'date',
-        'order'             => "DESC"
-    ));
-}
 ?>
 
 
@@ -46,7 +34,7 @@ if ($selected_user) {
         <div class="service-top__left">
             <?php echo $main_text; ?>
         </div>
-        <div class="service-top__right">
+        <div class="service-top__right services_industries">
             <h3> <?php esc_html_e('Related Industries', 'kernutt'); ?></h3>
 
             <?php if ($related_industries_description) : ?>
@@ -118,14 +106,14 @@ if ($selected_user) {
 
                 <?php if ($form_id) : ?>
 
-                    <div class="form-service__form">
+                    <div class="form-service__form inner_form">
                          <?php echo gravity_form($form_id, false); ?>
                     </div>
 
                 <?php endif; ?>
 
             </div>
-            <div class="form-service__related">
+            <div class="form-service__related services_industries">
                 <h3><?php esc_html_e('Other Services', 'kernutt'); ?></h3>
                 <?php echo $other_services; ?>
 
@@ -145,70 +133,7 @@ if ($selected_user) {
 
 <!-- Category Posts -->
 
-<?php if ($recent_posts) : ?>
-
-<div class="posts_grid">
-	<h2 class="kn_inner_title"><?php the_field('industry_posts_title'); ?></h2>
-	<div class="posts_grid_inner">
-
-		<?php
-		foreach ($recent_posts as $recent_post) :
-			global $post;
-			$post = $recent_post;
-			setup_postdata($post);
-			$image = get_the_post_thumbnail(get_the_id(), "medium");
-			$title = get_the_title();
-			$excerpt = get_the_excerpt();
-			$categories = get_the_category();
-			$separator = ' | ';
-			$output = '';
-		?>
-
-			<div class="posts_grid_item">
-				<div class="pg-image">
-
-					<?php if($image): ?>
-						<a href="<?php the_permalink(); ?>">
-						   <?php echo $image; ?>
-						</a>
-					<?php endif; ?>
-
-				</div>
-
-				<?php if($title): ?>
-
-				<h2 class="heading-secondary">
-					<a href="<?php the_permalink(); ?>"><?php echo $title; ?></a>
-				</h2>
-				<?php if ( ! empty( $categories ) ) { ?>
-				<div class="cats">
-				<?php foreach( $categories as $category ) {
-					$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
-				}
-				echo trim( $output, $separator ); ?>
-				</div>
-			<?php } ?>
-
-				<?php endif; ?>
-
-				<?php if($excerpt): ?>
-
-				<div class="entry-content"> <?php echo $excerpt; ?> </div>
-
-				<?php endif; ?>
-
-			</div>
-
-		<?php
-
-		endforeach;
-		wp_reset_postdata();
-		?>
-
-	</div>
-</div>
-
-<?php endif; ?>
+<?php get_template_part('template-parts/category', 'posts'); ?>
 
 <!-- Category Posts END -->
 

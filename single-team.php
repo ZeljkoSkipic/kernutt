@@ -142,12 +142,10 @@ if ($selected_user) {
 
 <?php if (isset($author_posts) && $author_posts) : ?>
 
-<div class="author-posts">
-	<div class="container">
+<div class="posts_grid">
 	<h2 class="team_related_posts"><?php echo $related_resources ?></h2>
 
-		<div class="author-posts__inner">
-			<div class="author-posts__items">
+		<div class="posts_grid_inner">
 
 				<?php foreach ($author_posts->posts as $author_post) {
 					global $post;
@@ -159,9 +157,6 @@ if ($selected_user) {
 				wp_reset_postdata();
 				?>
 
-			</div>
-
-
 			<?php if ($author_posts->max_num_pages > 1) : ?>
 
 				<div class="load_more_container">
@@ -171,7 +166,6 @@ if ($selected_user) {
 			<?php endif; ?>
 
 		</div>
-	</div>
 </div>
 
 <?php endif; ?>

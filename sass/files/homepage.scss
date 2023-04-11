@@ -10,8 +10,8 @@
 	max-height: 100vh;
 	height: fit-content;
 	position: relative;
-	margin-top: 157px;
 	display: flex;
+	margin-top: 157px;
 	@include limbo-min {
 		height: 615px;
 		justify-content: flex-end;

@@ -113,7 +113,7 @@
         font-size: 16px;
         line-height: 20px;
         font-weight: 400;
-
+		width: 100%;
         h3 {
             font-size: 25px;
             color: #B26C26;
@@ -149,11 +149,6 @@
         max-width: 50%;
         width: 100%;
         padding-right: 35px;
-		a {
-			&:hover {
-				font-weight: 700;
-			}
-		}
         @media (max-width: 1110px) {
             flex: 0 0 100%;
             max-width: 100%;
@@ -172,11 +167,7 @@
         flex: 0 0 50%;
         max-width: 50%;
         width: 100%;
-		a {
-			&:hover {
-				font-weight: 700;
-			}
-		}
+
         @media (max-width: 1110px) {
             flex: 0 0 100%;
             max-width: 100%;
@@ -288,7 +279,6 @@
     }
 
     // Form Service
-
     .form-service {
         padding: 35px 0;
         @media (max-width: 610px) {
@@ -366,6 +356,7 @@
         }
     }
 }
+
 
 /* Archive */
 

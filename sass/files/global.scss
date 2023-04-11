@@ -11,6 +11,12 @@
 /* Form */
 
 .inner_form {
+	form {
+		input, textarea {
+			color: #5b5e80!important;
+			opacity: 1!important;
+		}
+	}
 	.gform_wrapper.gravity-theme .gform_fields {
 		position: relative;
 		gap: 12px;
@@ -21,7 +27,6 @@
 			font-size: 16px;
 			font-weight: 500;
 			padding: 13px;
-			color: #ADADAD;
 		}
 	}
 
