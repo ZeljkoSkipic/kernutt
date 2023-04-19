@@ -10,14 +10,7 @@
             "type": "tab",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6409c9c1d5f19",
-                        "operator": "==empty"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -54,14 +47,7 @@
             "type": "tab",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6409c9c1d5f19",
-                        "operator": "==empty"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -135,14 +121,7 @@
             "type": "tab",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6409c9c1d5f19",
-                        "operator": "==empty"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -196,14 +175,7 @@
             "type": "tab",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6409c9c1d5f19",
-                        "operator": "==empty"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -260,14 +232,7 @@
             "type": "tab",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6409c9c1d5f19",
-                        "operator": "==empty"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -296,7 +261,7 @@
         },
         {
             "key": "field_63de54e125933",
-            "label": "Form Image",
+            "label": "Form Section Image",
             "name": "form_image",
             "aria-label": "",
             "type": "image",
@@ -341,30 +306,23 @@
         },
         {
             "key": "field_63de54f125934",
-            "label": "Form Description",
+            "label": "Image Description",
             "name": "form_description",
             "aria-label": "",
-            "type": "text",
+            "type": "wysiwyg",
             "instructions": "Only for default template",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6409c9c1d5f19",
-                        "operator": "==empty"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "tabs": "text",
+            "media_upload": 0,
+            "toolbar": "full",
+            "delay": 0
         },
         {
             "key": "field_63de580515b3a",
@@ -388,20 +346,13 @@
         },
         {
             "key": "field_63df0c6ca7b3e",
-            "label": "Related Posts Category",
+            "label": "Posts Category",
             "name": "",
             "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6409c9c1d5f19",
-                        "operator": "==empty"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -432,7 +383,7 @@
         },
         {
             "key": "field_63df0c38a7b3d",
-            "label": "Related Posts Category",
+            "label": "Posts Category",
             "name": "posts_category",
             "aria-label": "",
             "type": "taxonomy",
@@ -452,40 +403,6 @@
             "field_type": "select",
             "allow_null": 0,
             "multiple": 0
-        },
-        {
-            "key": "field_6409ca3ff2c51",
-            "label": "External Service Link",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0
-        },
-        {
-            "key": "field_6409c9c1d5f19",
-            "label": "External Service Link",
-            "name": "external_service_link",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "If this link is used, the Service on the archive page will lead to the link provided here, and not to the Service page.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
         }
     ],
     "location": [
@@ -506,5 +423,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681044316
+    "modified": 1681477535
 }

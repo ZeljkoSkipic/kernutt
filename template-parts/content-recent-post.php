@@ -1,5 +1,5 @@
 <?php
-$image = get_the_post_thumbnail(get_the_id(), "medium");
+$image = get_the_post_thumbnail(get_the_id(), 'large');
 $title = get_the_title();
 $excerpt = get_the_excerpt();
 $categories = get_the_category();

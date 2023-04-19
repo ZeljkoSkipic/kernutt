@@ -85,7 +85,7 @@ $form_title = get_field('form_title');
                 <?php
                 $team_image = get_field('team_image');
                 $size = 'full';
-                if ($logo) {
+                if ($team_image) {
                     echo wp_get_attachment_image($team_image, $size);
                 } ?>
                 <figcaption>

@@ -96,7 +96,7 @@ $form_id = get_field('form_id');
 
             <?php endif; ?>
 
-            <div class="form-service__right">
+            <div class="form-service__col3">
 
                 <?php if($form_title): ?>
 

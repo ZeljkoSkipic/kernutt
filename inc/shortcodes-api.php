@@ -1,4 +1,4 @@
-<?php 
+<?php
 function spotlights() {
 
     ob_start();

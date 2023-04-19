@@ -63,19 +63,26 @@
         margin-bottom: 35px;
         flex-wrap: wrap;
 
-        &__left {
-            flex: 0 0 50%;
-            max-width: 50%;
-            width: 100%;
+        .service-top__left {
+            width: 50%;
             padding-right: 35px;
-
+			li {
+				font-weight: 400;
+				font-size: 16px;
+			}
             @media (max-width: 980px) {
                 flex: 0 0 100%;
                 max-width: 100%;
                 padding-right: 0;
                 padding-bottom: 30px;
             }
-
+			a {
+				color: #000;
+				&:hover {
+					color: #B26C26;
+					font-weight: 700;
+				}
+			}
             p {
                 font-weight: 400;
                 font-size: 16px;
@@ -99,11 +106,9 @@
             }
         }
     }
-.services-template-single-services-partner  .service-top__right, .form-service__related {
-	@media (min-width: 1250px) {
-		flex: 20% 0 0!important;
+	.service-top__right, .form-service__related {
+		width: 20%;
 	}
-}
     .service-top__related-wrapper,
     .service-top__right,
     .form-service__related {
@@ -113,7 +118,7 @@
         font-size: 16px;
         line-height: 20px;
         font-weight: 400;
-		width: 100%;
+		margin-bottom: auto;
         h3 {
             font-size: 25px;
             color: #B26C26;
@@ -167,7 +172,6 @@
         flex: 0 0 50%;
         max-width: 50%;
         width: 100%;
-
         @media (max-width: 1110px) {
             flex: 0 0 100%;
             max-width: 100%;
@@ -191,6 +195,7 @@
         &-author {
             font-weight: 400;
             font-size: 16px;
+			padding-left: 17px
         }
     }
 	.form-service__quote-author {
@@ -202,49 +207,50 @@
     .form-service {
         background-color: #ece7d4;
 
-        &__inner {
+        .form-service__inner {
             display: flex;
             flex-wrap: wrap;
         }
 
-        &__left {
-            flex: 0 0 726px;
-            max-width: 726px;
-            width: 100%;
+        .form-service__left {
             padding: 35px 35px 35px 0;
-
-            @media (max-width: 1110px) {
-                flex: 0 0 100%;
-                max-width: 100%;
+			@include limbo-min {
+				width: 50%;
+			}
+            img {
+				width: 100%;
+                max-width: 726px;
+            }
+            @include tab-max {
                 padding: 20px 0;
             }
         }
-
-        &__image {
+        .form-service__image {
             width: 100%;
             height: 250px;
             margin-bottom: 12px;
-
             img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
         }
-
-
-        &__description {
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 22px;
-            color: #3B3733;
+        .form-service__description {
+            max-width: 726px;
+			p {
+				font-size: 16px;
+				font-weight: 400;
+				line-height: 22px;
+				color: #3B3733;
+			}
         }
 
-        &__right {
-            flex: 1;
+        .form-service__right {
             padding: 35px 35px 35px 0;
-
-            @media (max-width: 1110px) {
+			@include limbo-min {
+				width: 50%;
+			}
+            @include tab-max {
                 padding: 0;
             }
 
@@ -259,8 +265,7 @@
 
 .services-template-single-services-partner {
     .service-top {
-
-        &__left {
+        .service-top__left {
             flex: 0 0 80%;
             max-width: 80%;
 
@@ -271,7 +276,7 @@
             }
         }
 
-        &__right {
+        .service-top__right {
             display: block;
             flex: 1;
             max-width: 100%;
@@ -289,13 +294,12 @@
             margin-bottom: 12px;
         }
 
-        &__left {
-            flex: 0 0 350px;
-            max-width: 350px;
-            width: 100%;
-            padding: 0;
+        .form-service__left {
+           padding: 0;
             padding-right: 35px;
-
+			@include limbo-min {
+				width: 350px;
+			}
             @media (max-width: 1250px) {
                 flex: 0 0 50%;
                 max-width: 50%;
@@ -309,18 +313,15 @@
             }
         }
 
-        &__right {
+        .form-service__col3 {
             padding: 0;
             padding-right: 35px;
-
-            @media (max-width: 1250px) {
-                flex: 0 0 80%;
-                max-width: 80%;
-            }
-
-            @media (max-width: 960px) {
-                flex: 0 0 100%;
-                max-width: 100%;
+			width: calc(40% - 175px);
+			@include limbo-only {
+				width: 50%;
+			}
+            @include tab-max {
+                width: 100%;
                 padding-right: 0;
                 margin-bottom: 18px;
             }
@@ -352,7 +353,6 @@
 
         &__related {
             display: block;
-            flex: 1;
         }
     }
 }

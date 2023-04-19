@@ -25,7 +25,7 @@ if (!$spotlights) return;
 
                 ?>
                     <a data-fancybox class="various fancybox" data-fancybox-type="iframe" href="<?php echo $popup_youtube; ?>"><?php echo $image; ?></a>
-                    
+
                 <?php else : echo $image; ?>
 
                 <?php endif; ?>

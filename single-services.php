@@ -105,7 +105,7 @@ $form_title = get_field('form_title');
 
                 <?php if ($form_description) : ?>
 
-                    <p class="form-service__description"><?php echo $form_description; ?></p>
+                    <div class="form-service__description"><?php echo $form_description; ?></div>
 
                 <?php endif; ?>
 
