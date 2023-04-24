@@ -3,11 +3,10 @@
 $title = get_sub_field('title');
 $content = get_sub_field('content');
 ?>
-<div style="height: 160px;"></div>
-<div class="career_intro">
+<div class="career_intro career_container">
 	<div class="career_intro_left">
-		<h2><?php echo $title; ?></h2>
-		<div><?php echo $content; ?></div>
+		<h2 class="font-a intro_title"><?php echo $title; ?></h2>
+		<div class="font-b intro_content"><?php echo $content; ?></div>
 		<?php
 		if( have_rows('images') ): ?>
 			<?php while( have_rows('images') ) : the_row(); ?>

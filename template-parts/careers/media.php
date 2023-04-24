@@ -28,8 +28,8 @@ $color = get_sub_field('text_color');
 
 	</div>
 	<div class="career_media_col2">
-		<h2 style="color: <?php echo $color; ?>"><?php echo $title; ?></h2>
-		<div style="color: <?php echo $color; ?>"><?php echo $text; ?></div>
+		<h2 class="font-a" style="color: <?php echo $color; ?>"><?php echo $title; ?></h2>
+		<div class="font-c" style="color: <?php echo $color; ?>"><?php echo $text; ?></div>
 		<?php
 		if( $button ):
 			$link_url = $button['url'];

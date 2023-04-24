@@ -18,6 +18,7 @@ $sec_1_intro = get_field('sec_1_intro');
 ?>
 
 <div class="kn_careers_page">
+	<?php the_post_thumbnail(); ?>
 	<?php
 		if( function_exists('have_rows') ) :
 

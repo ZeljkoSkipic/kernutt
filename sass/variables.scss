@@ -99,3 +99,79 @@ $huge-desk-min: 2560px;
     @content;
   }
 }
+
+
+@mixin font-a {
+	font-weight: 600;
+	font-size: 25px;
+	font-family: "AvenirNext", sans-serif;
+	color: #b36c26;
+	padding-bottom: $space-d;
+}
+
+@mixin font-b {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22px;
+}
+
+@mixin font-c {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 22px;
+}
+
+@mixin font-d {
+	font-weight: 700;
+	font-size: 16px;
+}
+
+@mixin font-e {
+	font-weight: 600;
+	font-size: 18px;
+}
+
+@mixin font-f {
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 14px;
+}
+
+@mixin font-g {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 22px;
+}
+
+$space-a: 35px;
+$space-b: 56px;
+$space-c: 26px;
+$space-d: 15px;
+
+.font-a {
+	@include font-a;
+}
+
+.font-b {
+	@include font-b;
+}
+
+.font-c {
+	@include font-c;
+}
+
+.font-d {
+	@include font-d;
+}
+
+.font-e {
+	@include font-e;
+}
+
+.font-f {
+	@include font-f;
+}
+
+.font-g {
+	@include font-g;
+}

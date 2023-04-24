@@ -1,10 +1,7 @@
 .spotlights {
-
     max-width: 95%;
-    margin: 0 auto;
-   
+    margin: 0 auto $space-b auto;
     &__slider {
-
         .flickity-prev-next-button.previous {
             left: 0;
             transform: translateX(-100%);
@@ -14,10 +11,8 @@
             right: 0;
             transform: translateX(100%);
         }
-       
-    }
 
-    padding: 50px 0;
+    }
 
     &__item {
         width: 25%;
@@ -58,8 +53,6 @@
     }
 
     .flickity-page-dots {
-       bottom: -70px;
-
        .dot {
         width: 15px;
         height: 15px;
