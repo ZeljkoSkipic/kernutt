@@ -21,7 +21,7 @@ $form_title = get_field('form_title');
 <div class="kn_industry_main">
     <div class="kn_im_left">
         <h1 class="kn_inner_title"><?php the_title(); ?></h1>
-        <div>
+        <div class="kn_industry_left_content">
             <?php echo $content; ?>
         </div>
     </div>

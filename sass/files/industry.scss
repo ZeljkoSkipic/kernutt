@@ -7,7 +7,6 @@
 	}
 	.kn_industry_hero {
 		height: 254px;
-		margin-top: 157px;
 		img {
 			width: 100%;
 			object-fit: cover;
@@ -24,8 +23,15 @@
 			flex-direction: column;
 		}
 		.kn_im_left {
-			* {
+			.kn_industry_left_content {
 				font-weight: 400;
+				a {
+					color: #000;
+					font-weight: 600;
+					&:hover {
+						color: #B26C26;
+					}
+				}
 			}
 			@include limbo-min {
 				width: 80%;
@@ -115,6 +121,13 @@
 				font-size: 16px;
 				line-height: 22px;
 			}
+			a {
+				color: #000;
+				transition: .3s all;
+				&:hover {
+					color: #B26C26;
+				}
+			}
 		}
 		.kn_is_2_col_2 {
 			width: 30%;
@@ -158,9 +171,7 @@
 /* Archive */
 
 .archive-industry {
-    margin-top: 156px;
     font-family: "AvenirNext", sans-serif;
-
     &__items {
         display: grid;
         grid-template-columns: repeat(3, 1fr);

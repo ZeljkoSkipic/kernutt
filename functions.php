@@ -244,6 +244,15 @@ function create_team_taxonomies()
 
 if (function_exists('acf_add_options_page')) {
 
+	acf_add_options_page(array(
+        'page_title'    => 'Site General Settings',
+        'menu_title'    => 'Site Settings',
+        'menu_slug'     => 'theme-general-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false,
+		'icon_url' 		=> 'dashicons-admin-site',
+    ));
+
     acf_add_options_sub_page(array(
         'page_title'     => 'Archive Page',
         'menu_title'    => 'Archive',

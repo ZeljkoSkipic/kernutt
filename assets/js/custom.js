@@ -108,7 +108,7 @@ jQuery(function ($) {
 window.addEventListener('DOMContentLoaded', function () {
   var sliderElem = document.querySelector('.spotlights__slider');
   var slider = new Flickity(sliderElem, {
-    wrapAround: false,
+    wrapAround: true,
     cellAlign: 'left'
   });
   Fancybox.bind("[data-fancybox]", {

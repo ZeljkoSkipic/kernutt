@@ -475,7 +475,8 @@
                             "choices": {
                                 "#3B3733": "#3B3733",
                                 "#B26C26": "#B26C26",
-                                "#5B5855": "#5B5855"
+                                "#5B5855": "#5B5855",
+                                "#ece7d4": "#ece7d4"
                             },
                             "default_value": "",
                             "return_format": "value",
@@ -806,7 +807,7 @@
                                             "label": "Content",
                                             "name": "subcontent_content",
                                             "aria-label": "",
-                                            "type": "textarea",
+                                            "type": "wysiwyg",
                                             "instructions": "",
                                             "required": 0,
                                             "conditional_logic": 0,
@@ -816,10 +817,10 @@
                                                 "id": ""
                                             },
                                             "default_value": "",
-                                            "maxlength": "",
-                                            "rows": "",
-                                            "placeholder": "",
-                                            "new_lines": "",
+                                            "tabs": "text",
+                                            "media_upload": 0,
+                                            "toolbar": "full",
+                                            "delay": 0,
                                             "parent_repeater": "field_644663761ec63"
                                         }
                                     ],
@@ -1010,5 +1011,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1682334970
+    "modified": 1682500955
 }

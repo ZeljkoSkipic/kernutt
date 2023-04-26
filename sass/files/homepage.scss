@@ -14,14 +14,12 @@
 	height: fit-content;
 	position: relative;
 	display: flex;
-	margin-top: 157px;
 	@include limbo-min {
 		height: 615px;
 		justify-content: flex-end;
 		align-items: flex-end;
 	}
 	@include tab-max {
-		margin-top: 189px;
 		justify-content: center;
 		align-items: center;
 	}
