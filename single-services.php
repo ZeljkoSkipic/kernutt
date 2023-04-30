@@ -98,7 +98,7 @@ $form_title = get_field('form_title');
                 <?php if ($form_image) : ?>
 
                     <div class="form-service__image">
-                        <?php echo wp_get_attachment_image($form_image, 'large'); ?>
+                        <?php echo wp_get_attachment_image($form_image, 'full'); ?>
                     </div>
 
                 <?php endif; ?>

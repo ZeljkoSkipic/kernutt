@@ -1,0 +1,78 @@
+.kn_contact_us {
+	.gform_title {
+		@include font-a;
+	}
+	.gform_fields {
+		grid-column-gap: 12px!important;
+		grid-row-gap: 12px!important;
+	}
+	input, select, textarea {
+		background-color: #ecebeb;
+		border: none;
+		font-size: 16px!important;
+		color: #3B3733;
+		font-family: AvenirNext;
+		font-weight: 500;
+		&::placeholder {
+			color: #3B3733;
+			font-family: AvenirNext;
+			font-weight: 500;
+		}
+	}
+	input, select {
+		height: 40px;
+		-webkit-appearance: none;
+		-webkit-border-radius: 0;
+	}
+	select {
+		background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6cmdiYSgyNTUsMjU1LDI1NSwwKTt9LmNscy0ye2ZpbGw6IzVCNTg1NTt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat 95% 50%;
+		background-color: #ecebeb;
+		background-position: center right 5px;
+		cursor: pointer
+	}
+	textarea {
+		height: 130px!important;
+		padding-bottom: 0!important;
+	}
+	.gfield_description {
+		padding-top: 0!important;
+		margin-top: -5px;
+		font-size: 12px!important;
+		line-height: 1!important;
+	}
+	.gform_footer {
+		padding: 0!important;
+		margin-top: -5px!important;
+		button.gform_button {
+			margin-left: auto!important;
+			margin-right: 0!important;
+			background-color: #b36c26;
+			border: none;
+			font-family: AvenirNext;
+			font-weight: 600;
+			color: #fff;
+			font-size: 15px;
+			text-transform: uppercase;
+			border-radius: 8px;
+			&:after {
+				display: none;
+			}
+			&:hover {
+				padding: 0.3em 1em;
+			}
+
+		}
+	}
+	.et_pb_column_1_2 {
+		img {
+			aspect-ratio: 800 / 453;
+			object-fit: cover;
+		}
+	}
+}
+
+
+.bdo_text {
+	font-family: AvenirNext;
+	font-weight: 400;
+}

@@ -290,7 +290,7 @@
             "name": "form_image_title",
             "aria-label": "",
             "type": "text",
-            "instructions": "Only for partners in charge template",
+            "instructions": "Only shown in partners in charge template",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -423,5 +423,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681477535
+    "modified": 1682509307
 }

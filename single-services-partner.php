@@ -13,10 +13,12 @@ $other_services_link = get_field('other_services_see_all_link');
 $title = get_the_title();
 $quote = get_field('quote');
 $quote_person = get_field('quote_person');
-$form_image_title = get_field('form_image_title');
+
 $form_image = get_field('form_image');
-$form_title = get_field('form_title');
+$form_image_title = get_field('form_image_title');
+$form_description = get_field('form_description');
 $form_id = get_field('form_id');
+$form_title = get_field('form_title');
 ?>
 
 
@@ -77,6 +79,16 @@ $form_id = get_field('form_id');
                     </div>
 
                 <?php endif; ?>
+				<?php if ($form_image_title) : ?>
+
+				<div class="form-service__role"><?php echo $form_image_title; ?></div>
+
+				<?php endif; ?>
+				<?php if ($form_description) : ?>
+
+				<div class="form-service__description"><?php echo $form_description; ?></div>
+
+				<?php endif; ?>
 
             </div>
             <?php if ($quote) : ?>
