@@ -10,6 +10,7 @@ $tt = get_field('meet_the_team');
 $image = get_field('team_image');
 $caption = get_field('team_caption');
 $st = get_field('services_title');
+$services_description = get_field('services_description');
 $form_id = get_field('form_id');
 $form_title = get_field('form_title');
 
@@ -28,6 +29,7 @@ $form_title = get_field('form_title');
     <div class="kn_im_right">
 		<h2 class="kn_inner_title"><?php echo $st; ?></h2>
             <div class="kn_i_services">
+				<p class="kn_i_services_intro"><?php echo $services_description; ?></p>
                 <?php
                 // Check rows existexists.
                 if (have_rows('services')) : ?>
@@ -42,7 +44,7 @@ $form_title = get_field('form_title');
 
                             <li>
 							<?php if( $s_link ): ?>
-							<a href="<?php $s_link; ?>">
+							<a href="<?php echo $s_link; ?>">
 							<?php endif; ?>
 								<?php echo $service; ?></li>
 							<?php if( $s_link ): ?>
@@ -52,7 +54,7 @@ $form_title = get_field('form_title');
                         endwhile; ?>
                     </ul>
                 <?php endif; ?>
-                <a class="see_all" href="/services">See all</a>
+                <a class="see_all" href="/service">See all</a>
             </div>
         <h2 class="kn_inner_title"><?php echo $at; ?></h2>
         <div class="kn_i_logos">
@@ -120,6 +122,7 @@ $form_title = get_field('form_title');
 <!-- Category Posts -->
 
 <?php get_template_part('template-parts/category', 'posts'); ?>
+
 
 <!-- Category Posts END -->
 

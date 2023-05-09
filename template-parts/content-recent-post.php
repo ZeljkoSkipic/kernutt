@@ -20,9 +20,9 @@ $output = '';
 
     <?php if ($title) : ?>
 
-        <h2 class="heading-secondary">
+        <h4 class="heading-secondary">
             <a href="<?php the_permalink(); ?>"><?php echo $title; ?></a>
-        </h2>
+        </h4>
         <?php if (!empty($categories)) { ?>
             <div class="cats">
                 <?php foreach ($categories as $category) {

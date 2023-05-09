@@ -2,7 +2,7 @@
 
 
 .single-industry {
-	#et-main-area * {
+	#et-main-area *:not(.et_pb_scroll_top) {
 		font-family: "AvenirNext";
 	}
 	.kn_industry_hero {
@@ -53,6 +53,12 @@
 			}
 			.kn_i_services {
 				margin-bottom: 35px;
+				.kn_i_services_intro {
+					padding-bottom: 18px;
+					font-size: 16px;
+					line-height: 22px;
+					font-weight: 400;
+				}
 				li {
 					font-size: 16px;
 					line-height: 22px;
@@ -73,6 +79,7 @@
 				line-height: 1;
 				font-size: 16px;
 				color: #000;
+				font-weight: 400;
 				&:hover {
 					font-weight: 700;
 					color: #B26C26;

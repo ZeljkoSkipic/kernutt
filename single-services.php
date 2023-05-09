@@ -7,6 +7,7 @@ $related_industries = get_field('related_industries');
 $related_industries_link = get_field('related_industries_see_all_link');
 $related_industries_description = get_field('related_industries_description');
 $other_services = get_field('other_services');
+$other_services_description = get_field('other_services_description');
 $other_services_link = get_field('other_services_see_all_link');
 $title = get_the_title();
 $quote = get_field('quote');
@@ -69,18 +70,7 @@ $form_title = get_field('form_title');
 
                     <a class="see_all" href="<?php echo $related_industries_link; ?>"><?php esc_html_e('See all', 'kernutt') ?></a>
 
-                    <?php endif; ?>
-
-                </div>
-                <div class="service-top__related-right services_industries">
-                    <h3><?php esc_html_e('Other Services', 'kernutt'); ?></h3>
-                    <?php echo $other_services; ?>
-
-                    <?php if($other_services_link): ?>
-
-                    <a class="see_all" href="<?php echo $other_services_link; ?>"><?php esc_html_e('See all', 'kernutt') ?></a>
-
-                    <?php endif; ?>
+                    <?php endif; ?><br>
 
                 </div>
             </div>
@@ -110,7 +100,7 @@ $form_title = get_field('form_title');
                 <?php endif; ?>
 
             </div>
-            <div class="form-service__right">
+            <div class="form-service__mid">
 
                 <?php if ($form_id) : ?>
 
@@ -128,6 +118,22 @@ $form_title = get_field('form_title');
                 <?php endif; ?>
 
             </div>
+			<div class="form-service__right services_industries">
+				<h3><?php esc_html_e('Other Services', 'kernutt'); ?></h3>
+				<?php if ($other_services_description) : ?>
+
+				<p class="form-service__right__other-description"><?php echo $other_services_description; ?></p>
+
+				<?php endif; ?>
+				<?php echo $other_services; ?>
+
+				<?php if($other_services_link): ?>
+
+				<a class="see_all" href="<?php echo $other_services_link; ?>"><?php esc_html_e('See all', 'kernutt') ?></a>
+
+				<?php endif; ?>
+
+			</div>
         </div>
     </div>
 </section>

@@ -7,7 +7,7 @@ Template Post Type: page
 
 get_header();
 
-$hero_image = get_field('hero_image');
+$hero_video = get_field('hero_video');
 $size = 'full';
 $hero_title = get_field('hero_title');
 $hero_subtitle = get_field('hero_subtitle');
@@ -19,9 +19,11 @@ $sec_1_intro = get_field('sec_1_intro');
 
 <div class="kn_homepage">
 	<div class="home_hero kn_container">
-		<?php if( $hero_image ) {
-			echo wp_get_attachment_image( $hero_image, $size );
-		} ?>
+		<?php if( $hero_video ) { ?>
+			<video width="954" height="535" autoplay loop>
+				<source src="<?php echo $hero_video;?>" type="video/mp4" >
+			</video>
+		<?php } ?>
 		<div class="home_hero_text">
 			<h2 class="home_hero_title"><?php echo $hero_title; ?></h1>
 			<h1 class="home_hero_subtitle"><?php echo $hero_subtitle; ?></h2>

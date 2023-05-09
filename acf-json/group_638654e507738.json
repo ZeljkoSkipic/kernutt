@@ -77,6 +77,26 @@
             "append": ""
         },
         {
+            "key": "field_64524d3bfb1ae",
+            "label": "Services Description",
+            "name": "services_description",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_63871980ab984",
             "label": "Services",
             "name": "services",
@@ -482,5 +502,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681212258
+    "modified": 1683115585
 }

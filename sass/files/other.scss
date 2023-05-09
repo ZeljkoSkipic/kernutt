@@ -76,3 +76,177 @@
 	font-family: AvenirNext;
 	font-weight: 400;
 }
+
+.bdo {
+	a {
+		font-weight: 600;
+		color: #000;
+		&:hover {
+			font-weight: 700;
+			color: #B26C26;
+		}
+	}
+}
+
+/* Awards */
+
+.awards_hero {
+	display: flex;
+	@include tab-max {
+		flex-direction: column;
+	}
+	.awards_hero_left {
+		padding: $space-b;
+		background-color: #3B3733;
+		color: #fff;
+		@include limbo-min {
+			width: 50%;
+		}
+		h1 {
+			color: #fff;
+			font-weight: 700;
+		}
+		p {
+			font-weight: 400;
+			font-size: 16px;
+		}
+	}
+	.awards_hero_right {
+		@include limbo-min {
+			width: 50%;
+		}
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+}
+.kn_awards_page {
+	display: flex;
+	padding: $space-b;
+	flex-wrap: wrap;
+	* {
+		font-family: 'AvenirNext';
+	}
+	.year {
+		.awards_inner {
+			display: flex;
+		}
+		.award {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			padding:  0 $space-a;
+			margin: $space-a auto;
+			border-right: 2px solid #D7D7D7;
+			@include limbo-only {
+				width: 50%;
+			}
+			&.wide {
+				img {
+					max-width: 300px;
+					width: 100%;
+				}
+			}
+			&.square {
+				img {
+					max-width: 140px;
+					aspect-ratio: 1/1;
+					width: 100%;
+				}
+			}
+		}
+		.award_year {
+			background-color: #D7D7D7;
+			font-size: 25px;
+			padding: 14px;
+			font-weight: 600;
+		}
+		.award_description {
+			font-size: 20px;
+			line-height: 28px;
+			margin-top: 18px;
+			text-align: center;
+		}
+		.award_link {
+			color: #5B5855;
+			font-size: 16px;
+			font-weight: 700;
+			font-style: italic;
+			margin-top: 12px;
+		}
+		&.year2023 {
+			width: 50%;
+			.award {
+				width: 50%
+			}
+			@include limbo-max {
+				width: 100%;
+				.award:last-child {
+					border: none;
+				}
+			}
+		}
+		&.year2022 {
+			width: 50%;
+			@include limbo-max {
+				width: 100%;
+			}
+		}
+		&.year2021 {
+			width: 75%;
+			@include limbo-max {
+				width: 100%;
+				.award {
+					width: calc(100% / 3);
+					&:last-child {
+						border: none;
+					}
+				}
+			}
+		}
+		&.year2020, &.year2019, &.year2018, &.year2017, &.year2016 {
+			width: 25%;
+			@include limbo-max {
+				width: 50%;
+			}
+		}
+	}
+	.year2016, .year2020 {
+		.award {
+			@include desk-min {
+				border: none;
+			}
+		}
+	}
+	.year2022 {
+		.award:last-child {
+			border: none
+		}
+	}
+	@include limbo-max {
+		.year2016, .year2017, .year2019 {
+			.award {
+				border: none
+			}
+		}
+		.year2016 {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	@include mob-only {
+		.awards_inner {
+			flex-wrap: wrap;
+		}
+		.year {
+			width: 100%!important;
+		}
+		.award {
+			width: 100%!important;
+			border:none!important;
+		}
+	}
+}

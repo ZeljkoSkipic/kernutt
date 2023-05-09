@@ -38,6 +38,11 @@
 	#top-menu > li {
 		margin-bottom: -16px;
 	}
+	#top-menu li li {
+		line-height: 1.2;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
 	#et_top_search {
 		@media (min-width: 981px) {
 			margin-left: auto;
@@ -141,7 +146,7 @@
 				right: -5px;
 				left: unset;
 				padding: $space-d;
-				border-top-color: #1e507b;
+				border-top-color: #2d2a26;
 				width: 400px;
 				max-width: 90vw;
 				> li > a {

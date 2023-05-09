@@ -10,7 +10,6 @@
 	background-color: #2d2a26;
 }
 .home_hero {
-	max-height: 100vh;
 	height: fit-content;
 	position: relative;
 	display: flex;
@@ -43,7 +42,7 @@
 			left: calc(50% - 25px);
 		}
 	}
-	img {
+	video {
 		position: absolute;
 		width: 100%;
 		height: 100%;

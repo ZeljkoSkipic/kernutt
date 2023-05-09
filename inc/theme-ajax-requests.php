@@ -18,19 +18,19 @@ function posts_load_more()
     if ($offset) {
 
         if ($user) {
-            $author_posts = get_posts(array(
+            $author_posts = new WP_Query(array(
                 'post_type'         => 'post',
-                'posts_per_page'    => 3,
+                'posts_per_page'    => 4,
                 'offset'            => $offset,
-                'author'            =>  $user,
+                'author_name' 		=> get_the_author_meta('user_nicename', $user),
                 'orderby'           => 'date',
-                'order'             => "DESC"
+                'order'             => "DESC",
             ));
 
-            if ($author_posts) {
+            if ($author_posts->have_posts()) {
 
                 ob_start();
-                foreach ($author_posts as $author_post) {
+                foreach ($author_posts->posts as $author_post) {
 
                     global $post;
                     $post = $author_post;

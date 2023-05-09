@@ -12,9 +12,9 @@ if ($selected_user) {
     $author_posts = new WP_Query(array(
         'post_type'         => 'post',
         'posts_per_page'    => 4,
-        'author'            => $selected_user['ID'],
+        'author_name' 		=> get_the_author_meta('user_nicename', $selected_user['ID']),
         'orderby'           => 'date',
-        'order'             => "DESC"
+        'order'             => "DESC",
     ));
 }
 ?>

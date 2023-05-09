@@ -1,5 +1,15 @@
 .kn_careers_page {
 	padding-bottom: 156px;
+	.posts_grid_item {
+		@include limbo-min {
+			margin-bottom: 0!important;
+		}
+		@include tab-max {
+			&:last-child {
+				margin-bottom: 0!important;
+			}
+		}
+	}
 }
 .career_container {
 	max-width: 1920px;
@@ -177,6 +187,7 @@
 	margin-bottom: $space-c;
 }
 .kn_jobs {
+	padding-top: $space-a;
 	padding-bottom: $space-a;
 	.kn_accordion {
 		margin-bottom: $space-c;

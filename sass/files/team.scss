@@ -64,7 +64,6 @@
 			margin-top: 35px;
 		}
 		.kn_lb_wrap {
-			text-align: center;
 			margin-top: 10px;
 		}
 		.tm_name, .of_name {
@@ -172,6 +171,7 @@
 			transition: .3s all;
 			&:hover {
 				color: #B26C26;
+				font-weight: 700;
 			}
 		}
 	}
