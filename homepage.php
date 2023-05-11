@@ -20,7 +20,7 @@ $sec_1_intro = get_field('sec_1_intro');
 <div class="kn_homepage">
 	<div class="home_hero kn_container">
 		<?php if( $hero_video ) { ?>
-			<video width="954" height="535" autoplay loop>
+			<video width="954" height="535" autoplay="autoplay" loop="true">
 				<source src="<?php echo $hero_video;?>" type="video/mp4" >
 			</video>
 		<?php } ?>

@@ -79,6 +79,39 @@ $form_title = get_field('form_title');
         </div>
     </div>
 </div>
+<?php
+	$acc_intro_title = get_field('acc_intro_title');
+	$acc_intro = get_field('acc_intro');
+	$accordion_title = get_field('accordion_title');
+
+if( get_field('add_accordion') ) { ?>
+<div class="kn_industry_accordion">
+	<h2 class="acc_sec_intro_title"><?php echo $acc_intro_title; ?></h2>
+	<div class="acc_sec_intro"><?php echo $acc_intro; ?></div>
+	<div class="kn_accordion">
+		<h4 class="acc_title kn_accordion_title"><?php echo $accordion_title; ?></h4>
+		<div class="kn_accordion_content">
+			<?php
+
+			if( have_rows('blurb') ): ?>
+				<div class="kn_blurbs">
+				<?php while( have_rows('blurb') ) : the_row(); ?>
+
+					<?php
+					$blurb_title = get_sub_field('blurb_title');
+					$blurb_content = get_sub_field('blurb_content');
+					?>
+					<div class="kn_blurb">
+						<h5 class="blurb_title"><?php echo $blurb_title; ?></h5>
+						<div class="blurb_content"><?php echo $blurb_content; ?></div>
+					</div>
+				<?php endwhile; ?>
+			</div>
+			<?php endif; ?>
+		</div>
+	</div>
+</div>
+<?php } ?>
 <div class="kn_industry_sec_2">
     <div class="kn_is2_inner">
 		<h2 class="kn_inner_title"><?php echo $tt ?></h2>
