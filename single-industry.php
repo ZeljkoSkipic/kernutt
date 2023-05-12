@@ -94,8 +94,9 @@ if( get_field('add_accordion') ) { ?>
 			<?php
 
 			if( have_rows('blurb') ): ?>
-				<div class="kn_blurbs">
-				<?php while( have_rows('blurb') ) : the_row(); ?>
+			<div class="kn_blurbs">
+				<div class="kn_blurbs_left">
+					<?php while( have_rows('blurb') ) : the_row(); ?>
 
 					<?php
 					$blurb_title = get_sub_field('blurb_title');
@@ -105,7 +106,21 @@ if( get_field('add_accordion') ) { ?>
 						<h5 class="blurb_title"><?php echo $blurb_title; ?></h5>
 						<div class="blurb_content"><?php echo $blurb_content; ?></div>
 					</div>
-				<?php endwhile; ?>
+					<?php endwhile; ?>
+				</div>
+				<div class="kn_blurbs_right">
+					<?php while( have_rows('blurb_right') ) : the_row(); ?>
+
+					<?php
+					$blurb_title = get_sub_field('blurb_title');
+					$blurb_content = get_sub_field('blurb_content');
+					?>
+					<div class="kn_blurb">
+						<h5 class="blurb_title"><?php echo $blurb_title; ?></h5>
+						<div class="blurb_content"><?php echo $blurb_content; ?></div>
+					</div>
+					<?php endwhile; ?>
+				</div>
 			</div>
 			<?php endif; ?>
 		</div>
