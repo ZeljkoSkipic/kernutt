@@ -410,3 +410,48 @@
 
     }
 }
+
+.lake-blurb {
+	line-height: 0;
+	@media (min-width: 1351px) {
+		height: 355px;
+
+	}
+	.et_pb_main_blurb_image {
+		height: 100%;
+		margin-bottom: 0;
+		span {
+			height: 100%;
+			img {
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+	.et_pb_blurb_content {
+		position: relative;
+		height: 100%
+	}
+	.et_pb_blurb_container {
+		position: absolute;
+		background-color: rgba(0,0,0,0.65);
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		font-size: 24px;
+		line-height: 1.3em;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		opacity: 0;
+		transition: all .3s;
+	}
+	&:hover {
+		.et_pb_blurb_container {
+			opacity: 1;
+		}
+	}
+}

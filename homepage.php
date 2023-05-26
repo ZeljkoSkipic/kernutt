@@ -18,7 +18,7 @@ $sec_1_intro = get_field('sec_1_intro');
 ?>
 
 <div class="kn_homepage">
-	<div class="home_hero kn_container">
+	<div class="home_hero">
 		<?php if( $hero_video ) { ?>
 			<video width="954" height="535" autoplay="autoplay" loop="true" muted>
 				<source src="<?php echo $hero_video;?>" type="video/mp4" >
@@ -48,9 +48,6 @@ $sec_1_intro = get_field('sec_1_intro');
 				$box_link = get_sub_field('box_link');
 				?>
 				<figure class="box">
-				<?php if( $box_image ) {
-					echo wp_get_attachment_image( $box_image, $size );
-				} ?>
 				<?php
 				if( $box_link ):
 					$link_url = $box_link['url'];
@@ -58,6 +55,10 @@ $sec_1_intro = get_field('sec_1_intro');
 					$link_target = $box_link['target'] ? $box_link['target'] : '_self';
 					?>
 				<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+				<?php if( $box_image ) {
+					echo wp_get_attachment_image( $box_image, $size );
+				} ?>
+
 				<figcaption><?php echo $link_title; ?></figcaption>
 				</a>
 				<?php endif; ?>

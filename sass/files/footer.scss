@@ -21,8 +21,11 @@
 	.footer_title {
 		font-size: 16px;
 		font-weight: 600;
-		color: #f7d21e!important;
 		padding-bottom: 0;
+		color: #f7d21e!important;
+		a {
+			color: #f7d21e;
+		}
 	}
 	.footer_logos {
 		img {
@@ -67,6 +70,12 @@
 			a {
 				font-weight: 700;
 			}
+		}
+	}
+	.footer_location {
+		margin-bottom: -18px;
+		a {
+			font-weight: 500!important;
 		}
 	}
 	.wp-block-social-links {

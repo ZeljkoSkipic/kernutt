@@ -23,14 +23,6 @@ $output = '';
         <h4 class="heading-secondary">
             <a href="<?php the_permalink(); ?>"><?php echo $title; ?></a>
         </h4>
-        <?php if (!empty($categories)) { ?>
-            <div class="cats">
-                <?php foreach ($categories as $category) {
-                    $output .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" alt="' . esc_attr(sprintf(__('View all posts in %s', 'textdomain'), $category->name)) . '">' . esc_html($category->name) . '</a>' . $separator;
-                }
-                echo trim($output, $separator); ?>
-            </div>
-        <?php } ?>
 
     <?php endif; ?>
 

@@ -18,7 +18,9 @@ if ($selected_user) {
     ));
 }
 ?>
-
+	<div class="kn_team_hero">
+		<?php the_post_thumbnail(); ?>
+	</div>
 	<div class="container">
 		<div id="content-area" class="clearfix">
 			<div class="team_member">
@@ -31,7 +33,7 @@ if ($selected_user) {
 				<h1 class="tm_name"><?php echo esc_attr( $team_left['name'] ); ?></h1>
 				<h2 class="tm_job_title"><?php echo esc_attr( $team_left['member_job_title'] ); ?></h2>
 				<a class="tm_phone" href="tel:<?php echo $team_left['phone']; ?>"><?php echo $team_left['phone']; ?></a>
-				<a class="tm_mail" href="mail:to:<?php echo esc_attr( $team_left['email'] ); ?>"><?php echo esc_attr( $team_left['email'] ); ?></a>
+				<a class="tm_mail" href="mailto:<?php echo esc_attr( $team_left['email'] ); ?>"><?php echo esc_attr( $team_left['email'] ); ?></a>
 				<div class="tm_education">
 					<?php if($team_left['address']) : ?>
 						<span class="school"><?php echo $team_left['address']; ?></span>

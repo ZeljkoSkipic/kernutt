@@ -4,6 +4,15 @@
 		max-width: 1600px;
 	}
 }
+.kn_team_hero {
+	height: 254px;
+	background-color: #2d2a25;
+	img {
+		width: 100%;
+		object-fit: cover;
+		height: 100%;
+	}
+}
 .single-team #et-main-area {
 	background-color: #ebe6d3;
 }

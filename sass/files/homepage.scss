@@ -27,21 +27,6 @@
 			font-size: 25px;
 		}
 	}
-	&:after {
-		content: "\33";
-		font-family: ETmodules;
-		font-size: 70px;
-		position: absolute;
-		bottom: 20px;
-		left: calc(50% - 35px);
-		color: #fff;
-		opacity: .7;
-		font-weight: 700;
-		@include mob-only {
-			font-size: 50px;
-			left: calc(50% - 25px);
-		}
-	}
 	video {
 		position: absolute;
 		width: 100%;
@@ -111,6 +96,7 @@
 		.box {
 			display: flex;
 			flex-direction: column;
+			line-height: 0;
 			img {
 				width: 100%;
 				object-fit: cover;
@@ -125,6 +111,7 @@
 				font-weight: 600;
 				padding-top: 15px;
 				padding-bottom: 15px;
+				line-height: 25.5px;
 			}
 			@include tab-min {
 				img {

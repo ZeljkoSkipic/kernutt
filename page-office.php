@@ -30,7 +30,7 @@ $right = get_field('right');
 								<img src="<?php echo esc_url( $m_image['url'] ); ?>" alt="<?php echo esc_attr( $m_image['alt'] ); ?>" />
 							</figure>
 						</a>
-						<div class="kn_lb_wrap"><a class="et_pb_button" href="<?php echo esc_url( $m_image['url'] ); ?>">Get Directions</a></div>
+						<div class="kn_lb_wrap"><a class="et_pb_button" href="<?php echo $left['maps_link']; ?>" target="_blank">Get Directions</a></div>
 						<?php endwhile;
 					endif;
 				?>
