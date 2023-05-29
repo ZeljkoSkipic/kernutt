@@ -9,7 +9,7 @@ get_header();
 
 
 ?>
-<div class="awards_hero kn_container">
+<div class="awards_hero">
 	<div class="awards_hero_left">
 		<h1><?php the_title(); ?></h1>
 		<?php the_content(); ?>

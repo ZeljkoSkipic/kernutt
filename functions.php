@@ -271,6 +271,12 @@ if (function_exists('acf_add_options_page')) {
         'parent_slug'    => 'edit.php?post_type=services',
     ));
 
+	acf_add_options_sub_page(array(
+        'page_title'     => 'Blog Archive',
+        'menu_title'    => 'Blog Archive',
+        'parent_slug'    => 'edit.php',
+    ));
+
     acf_add_options_sub_page(array(
         'page_title'     => 'Spotlights Settings',
         'menu_title'    => 'Spotlights Settings',

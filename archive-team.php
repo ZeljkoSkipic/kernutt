@@ -72,6 +72,10 @@ $internal_team_members = get_posts([
 
 ?>
 
+ <!-- Hero -->
+ <?php get_template_part('template-parts/archive', 'hero'); ?>
+ <!-- END -->
+
 <div class="team_archive">
     <div class="team_archive_members">
         <div class="team_archive_intro">
