@@ -4,6 +4,7 @@
 
 include  get_stylesheet_directory() . "/inc/theme-ajax-requests.php";
 include  get_stylesheet_directory() . "/inc/shortcodes-api.php";
+include  get_stylesheet_directory() . "/inc/filter.php";
 
 add_action('wp_enqueue_scripts', 'elegant_enqueue_css');
 
@@ -16,7 +17,8 @@ function elegant_enqueue_css()
 
     $theme_options = [
         'ajax_admin' => admin_url('admin-ajax.php'),
-        'nonce'      => wp_create_nonce('ajax-call-token')
+        'nonce'      => wp_create_nonce('ajax-call-token'),
+        'loadMore'   => __('There are no more posts to display.', 'kernutt')
     ];
 
     wp_localize_script('kernutt-scripts', 'theme', $theme_options);

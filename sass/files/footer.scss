@@ -2,9 +2,30 @@
 	* {
 		font-family: "AvenirNext";
 	}
+	p, a {
+		color: #fff;
+		font-size: 16px;
+		line-height: 20px;
+	}
 	#footer-widgets {
 		padding-top: 44px;
-		padding-bottom: 35px;
+		padding-bottom: 13px;
+		@include limbo-min {
+			gap: 22px;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(3, auto);
+		}
+		@include tab-max {
+			display: flex;
+			flex-wrap: wrap;
+			padding-bottom: 35px;
+		}
+		> div {
+			@include tab-max {
+				margin-bottom: 18px;
+			}
+		}
 	}
 	.footer-widget {
 		display: flex;
@@ -16,7 +37,63 @@
 		width: 90%;
 	}
 	.et_pb_widget.fwidget {
-		margin-bottom: 0!important;
+		float: none;
+	}
+	.ks_footer_widget_1 {
+		grid-column: 1 / 3;
+		@include mob-only {
+			order: 1;
+		}
+	}
+	.ks_footer_widget_2 {
+		@include  lg-desk-min {
+			padding-left: 33px;
+		}
+		@include tab-only {
+			width: 48%;
+		}
+		@include mob-only {
+			margin-bottom: 0!important;
+			order: 2;
+		}
+		@include md-desk-only {
+			padding-left: 25px;
+		}
+	}
+	.ks_footer_widget_3 {
+		@include lg-desk-min {
+			padding-left: 50px;
+		}
+		@include tab-only {
+			width: 48%;
+		}
+		@include mob-only {
+			margin-bottom: 0!important;
+			order: 3;
+		}
+		@include md-desk-only {
+			padding-left: 35px;
+		}
+	}
+	.ks_footer_widget_4 {
+		grid-column: 1 / 3;
+		@include mob-only {
+			order: 5;
+			width: 100%;
+		}
+	}
+	.ks_footer_widget_5 {
+		grid-column: 3 / 5;
+		@include  lg-desk-min {
+			padding-left: 33px;
+		}
+		@include mob-only {
+			order: 4;
+			width: 100%;
+		}
+		@include md-desk-only {
+			padding-left: 25px;
+		}
 	}
 	.footer_title {
 		font-size: 16px;
@@ -25,6 +102,7 @@
 		color: #f7d21e!important;
 		a {
 			color: #f7d21e;
+			line-height: 1;
 		}
 	}
 	.footer_logos {
@@ -44,8 +122,12 @@
 		}
 	}
 	.footer_bdo {
-		margin-top: 44px;
+		margin-top: -7.5px;
 		margin-bottom: 0;
+		p, a {
+			font-size: 15px;
+			line-height: 24.5px;
+		}
 		img {
 			height: 50px;
 			object-fit: contain;
@@ -72,16 +154,21 @@
 			}
 		}
 	}
+	.footer_phone {
+		margin-bottom: 18px;
+		a {
+			font-weight: 700;
+		}
+	}
 	.footer_location {
-		margin-bottom: -18px;
 		a {
 			font-weight: 500!important;
 		}
 	}
 	.wp-block-social-links {
 		list-style: none;
-		@media (min-width: 768px) {
-			margin-top: 17px;
+		@include limbo-min {
+			margin-top: -5px;
 		}
 		li {
 			padding-left: 0;
@@ -150,4 +237,11 @@
 #footer-widgets .footer-widget:nth-child(n) {
 		margin-bottom: 0!important;
 	}
+}
+
+.active {
+	width: 200px;
+	height: 50px;
+	background-color: red;
+	z-index: 999;
 }

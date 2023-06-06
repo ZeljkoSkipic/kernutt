@@ -78,9 +78,6 @@ $internal_team_members = get_posts([
 
 <div class="team_archive">
     <div class="team_archive_members">
-        <div class="team_archive_intro">
-            <?php the_field('team_archive_description', 'option'); ?>
-        </div>
         <div class="team_archive_items">
 
             <?php
@@ -165,20 +162,20 @@ $internal_team_members = get_posts([
             <?php if ($senior_managers || $managers) : ?>
 
                 <div class="team_archive_items_wrapper">
-                    <?php
-                    if ($senior_managers) :
 
-                    ?>
                         <div class="team_archive_item">
+						<?php if ($senior_managers) : ?>
 							<div class="team_header_grid">
 								<div class="team_archive_header">
 									<h2 class="team_role"><?php esc_html_e('Senior Manager', 'kernutt'); ?></h2>
 								</div>
-								<div class="team_archive_header desktop_role">
-									<h2 class="team_role"><?php esc_html_e('Managers', 'kernutt'); ?></h2>
-								</div>
+							<?php endif; ?>
+							<div class="team_archive_header desktop_role">
+								<h2 class="team_role"><?php esc_html_e('Managers', 'kernutt'); ?></h2>
+							</div>
 							</div>
                             <div class="team_archive_grid">
+							<?php if ($senior_managers) : ?>
                                 <?php
                                 foreach ($senior_managers as $senior_manager) :
                                     global $post;

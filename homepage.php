@@ -20,7 +20,7 @@ $sec_1_intro = get_field('sec_1_intro');
 <div class="kn_homepage">
 	<div class="home_hero">
 		<?php if( $hero_video ) { ?>
-			<video width="954" height="535" autoplay="autoplay" loop="true" muted>
+			<video width="954" height="535" autoplay="autoplay" loop="true" muted onclick="this.paused ? this.play() : this.pause(); arguments[0].preventDefault();" playsinline>
 				<source src="<?php echo $hero_video;?>" type="video/mp4" >
 			</video>
 		<?php } ?>
