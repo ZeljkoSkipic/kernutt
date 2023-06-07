@@ -9,6 +9,7 @@ jQuery(function ($) {
     const visualElementDelete = '.filter_panel_e_delete';
     const select = $('.posts_filter_top');
     const filterTermsWrapper = $('.posts_filter_bottom');
+    const loader = $('.filter_loader');
 
     let selectedCategories = [];
     let selectedCategoriesChildren = [];
@@ -95,6 +96,10 @@ jQuery(function ($) {
             controller.abort();
         }
 
+        // Loader 
+        
+        loader.removeClass('disabled');
+
         // Get Params from Url
         const currentUrl = window.location.href;
         const url = new URL(currentUrl);
@@ -132,6 +137,10 @@ jQuery(function ($) {
         }
 
         const posts = await request.json();
+
+        // loader
+
+        loader.addClass('disabled');
 
         if (posts) {
             if (posts.posts_html.length !== 0) {
@@ -279,12 +288,12 @@ jQuery(function ($) {
 
         if(current.hasClass('open')) {
             current.removeClass('open');
-            filterTermsWrapper.slideUp('fast', 'linear');
+            current.next(filterTermsWrapper).slideUp('fast', 'linear');
         }
 
         else {
             current.addClass('open');
-            filterTermsWrapper.slideDown('fast', 'linear');
+            current.next(filterTermsWrapper).slideDown('fast', 'linear');
         }
        
     }

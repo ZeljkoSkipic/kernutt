@@ -4,11 +4,13 @@ get_header();
 $title = get_field('blog_archive_title', 'option');
 $description = get_field('blog_archive_description', 'option');
 $image = get_field('blog_archive_image', 'option');
-$categories = get_terms(array(
-    'taxonomy'   => 'category',
-    'hide_empty' => true,
-    'parent' => 0
-));
+$categories = get_field('filter_terms', 'options');
+
+// Remove Empty Terms
+
+$categories = array_filter($categories, function($term) {
+    return $term->count !== 0;
+});
 
 $categories_url = (isset($_GET['categories']) && $_GET['categories'] ? wp_strip_all_tags($_GET['categories']) : "");
 $categories_children_url = (isset($_GET['categoriesChildren']) && $_GET['categoriesChildren'] ? wp_strip_all_tags($_GET['categoriesChildren']) : "");

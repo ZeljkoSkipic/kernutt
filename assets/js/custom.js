@@ -100,6 +100,7 @@ jQuery(function ($) {
   var visualElementDelete = '.filter_panel_e_delete';
   var select = $('.posts_filter_top');
   var filterTermsWrapper = $('.posts_filter_bottom');
+  var loader = $('.filter_loader');
   var selectedCategories = [];
   var selectedCategoriesChildren = [];
   var controller = null;
@@ -182,6 +183,10 @@ jQuery(function ($) {
               controller.abort();
             }
 
+            // Loader 
+
+            loader.removeClass('disabled');
+
             // Get Params from Url
             currentUrl = window.location.href;
             url = new URL(currentUrl);
@@ -202,24 +207,27 @@ jQuery(function ($) {
             if (offset !== null) data.append("offset", offset);
             controller = new AbortController();
             signal = controller.signal;
-            _context.next = 18;
+            _context.next = 19;
             return fetch(theme.ajax_admin, {
               method: "POST",
               body: data,
               signal: signal
             });
-          case 18:
+          case 19:
             request = _context.sent;
             if (request.ok) {
-              _context.next = 21;
+              _context.next = 22;
               break;
             }
             throw new Error("HTTP error! status: ".concat(request.status));
-          case 21:
-            _context.next = 23;
+          case 22:
+            _context.next = 24;
             return request.json();
-          case 23:
+          case 24:
             posts = _context.sent;
+            // loader
+
+            loader.addClass('disabled');
             if (posts) {
               if (posts.posts_html.length !== 0) {
                 controller = null;
@@ -251,7 +259,7 @@ jQuery(function ($) {
                 }
               }
             }
-          case 25:
+          case 27:
           case "end":
             return _context.stop();
         }
@@ -341,10 +349,10 @@ jQuery(function ($) {
     var current = $(e.currentTarget);
     if (current.hasClass('open')) {
       current.removeClass('open');
-      filterTermsWrapper.slideUp('fast', 'linear');
+      current.next(filterTermsWrapper).slideUp('fast', 'linear');
     } else {
       current.addClass('open');
-      filterTermsWrapper.slideDown('fast', 'linear');
+      current.next(filterTermsWrapper).slideDown('fast', 'linear');
     }
   };
   $('body').on('change', categoryInput, filter);

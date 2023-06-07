@@ -170,7 +170,7 @@
 		}
 		.award_description {
 			font-size: 20px;
-			line-height: 28px;
+			line-height: 20px;
 			padding-top: 18px;
 			text-align: center;
 			margin-top: 0;
@@ -246,16 +246,6 @@
 			}
 		}
 	}
-<<<<<<< HEAD
-=======
-	/* .year2022 {
-		@include desk-min {
-			.award:last-child {
-				border: none
-			}
-		}
-	} */
->>>>>>> 67882394e921771775bed2ed158dfcc58fdcd630
 	@include limbo-max {
 		.year2016, .year2017, .year2019 {
 			.award {
@@ -336,7 +326,9 @@
 			background-repeat: no-repeat;
 			padding-right: 40px;
 			transition: .3s all;
-			min-width: 270px;
+			@include tab-min {
+				min-width: 270px;
+			}
 			&.open {
 				border-bottom: 2px solid;
 				background-image: url(assets/icons/chevron-up.svg);
@@ -358,6 +350,46 @@
 		}
 		&:not(.disabled) {
 			cursor: pointer;
+		}
+	}
+}
+
+/* Filter Loader */
+
+.filter_loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+	z-index: 99999999;
+
+	&.disabled {
+		display: none;
+	}
+
+	.loader {
+		width: 48px;
+		height: 48px;
+		border: 5px solid #FFF;
+		border-bottom-color: #f7d21e;
+		border-radius: 50%;
+		display: inline-block;
+		box-sizing: border-box;
+		animation: rotation 1s linear infinite;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		}
+
+		@keyframes rotation {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
 		}
 	}
 }

@@ -1,5 +1,7 @@
 <?php
 
+// Filter after page refresh
+
 function blog_filter( $query ) {
 	if ( ! is_admin() && $query->is_main_query() && is_home() ) {
 		
@@ -41,3 +43,12 @@ function blog_filter( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'blog_filter', 1 );
+
+// Filter Admin Terms (Show Just Parent terms)
+
+function filter_hide_child_taxonomies( $args, $field ) {
+    $args['parent'] = 0;
+    return $args;
+}
+
+add_filter('acf/fields/taxonomy/query/name=filter_terms', 'filter_hide_child_taxonomies', 10, 3);
