@@ -1,5 +1,10 @@
 <?php
 
+if ( ! defined( 'T_VERSION' ) ) {
+	// Replace the version number of the theme on each release.
+	define( 'T_VERSION', '2.0.0' );
+}
+
 // Include Files
 
 include  get_stylesheet_directory() . "/inc/theme-ajax-requests.php";
@@ -10,10 +15,13 @@ add_action('wp_enqueue_scripts', 'elegant_enqueue_css');
 
 function elegant_enqueue_css()
 {
-    wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
+    wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css', array(), T_VERSION);
     wp_enqueue_script('kernutt-scripts', get_stylesheet_directory_uri() . "/assets/js/custom.min.js", array('jquery'), "1.0", true);
     wp_enqueue_script('flickity', get_stylesheet_directory_uri() . "/assets/js/vendor/flickity.js", array('jquery'), "1.0", true);
     wp_enqueue_script('fancybox', get_stylesheet_directory_uri() . "/assets/js/vendor/fancybox.js", array('jquery'), "1.0", true);
+
+	$cache_buster = date("YmdHi", filemtime( get_stylesheet_directory() . '/main.css'));
+	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/main.css', array(), $cache_buster, 'all' );
 
     $theme_options = [
         'ajax_admin' => admin_url('admin-ajax.php'),
