@@ -80,7 +80,7 @@ function posts_load_more()
     die();
 }
 
-// Posts Filter 
+// Posts Filter
 
 add_action('wp_ajax_posts_filter', 'posts_posts_filter');
 add_action('wp_ajax_nopriv_posts_filter', 'posts_posts_filter');
@@ -158,7 +158,7 @@ function posts_posts_filter()
 
             foreach ($categories as $category) {
                 $get_children = get_term_children($category, 'category');
-           
+
                 if ($get_children) {
                     foreach ($get_children as $child) {
                         $child_object = get_term($child, 'category');

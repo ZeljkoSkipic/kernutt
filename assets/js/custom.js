@@ -101,6 +101,7 @@ jQuery(function ($) {
   var select = $('.posts_filter_top');
   var filterTermsWrapper = $('.posts_filter_bottom');
   var loader = $('.filter_loader');
+  var mediaCategoriesWrapper = $('.media_cat');
   var selectedCategories = [];
   var selectedCategoriesChildren = [];
   var controller = null;
@@ -183,7 +184,7 @@ jQuery(function ($) {
               controller.abort();
             }
 
-            // Loader 
+            // Loader
 
             loader.removeClass('disabled');
 
@@ -234,21 +235,22 @@ jQuery(function ($) {
                 if (posts.load_more === false) {
                   postsWrapper.html("");
                   if (posts.child_categories.length !== 0) {
-                    childCategoriesWrapper.closest('.posts_filter').removeClass('disabled');
                     Object.keys(posts.child_categories).forEach(function (parentKey) {
                       Object.keys(posts.child_categories[parentKey]).forEach(function (childKey) {
                         if ($("#".concat(posts.child_categories[parentKey][childKey].term_id)).length === 0) {
-                          childCategoriesWrapper.append("\n                                    <div data-parent=\"".concat(parentKey, "\">\n                                        <input data-parent=\"").concat(parentKey, "\" data-child=\"true\" class=\"post_categories\" type=\"checkbox\" id=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\" name=\"post-category\" value=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\">\n                                        <label data-parent=\"").concat(parentKey, "\" for=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\">").concat(posts.child_categories[parentKey][childKey].name, "</label>\n                                    </div>\n                                    "));
+                          if (parentKey == theme.mediaTypeCatID) {
+                            mediaCategoriesWrapper.append("\n                                            <div class='child-cat' data-parent=\"".concat(parentKey, "\">\n                                                <input data-parent=\"").concat(parentKey, "\" data-child=\"true\" class=\"post_categories\" type=\"checkbox\" id=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\" name=\"post-category\" value=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\">\n                                                <label data-parent=\"").concat(parentKey, "\" for=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\">").concat(posts.child_categories[parentKey][childKey].name, "</label>\n                                            </div>\n                                        "));
+                          } else {
+                            $("#".concat(parentKey)).parent().after("\n                                        <div class='child-cat' data-parent=\"".concat(parentKey, "\">\n                                            <input data-parent=\"").concat(parentKey, "\" data-child=\"true\" class=\"post_categories\" type=\"checkbox\" id=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\" name=\"post-category\" value=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\">\n                                            <label data-parent=\"").concat(parentKey, "\" for=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\">").concat(posts.child_categories[parentKey][childKey].name, "</label>\n                                        </div>\n                                        "));
+                          }
                         }
                       });
                     });
-                  } else {
-                    childCategoriesWrapper.html('');
-                    childCategoriesWrapper.closest('.posts_filter').addClass('disabled');
                   }
                 }
                 postsWrapper.append(posts.posts_html);
               } else {
+                // No results in Load More
                 if (posts.load_more === true) {
                   if ($('.filter_no_posts').length === 0) {
                     loadMore.after("\n                        <p class=\"filter_no_posts\">".concat(theme.loadMore, "</p>\n                        "));
@@ -256,6 +258,14 @@ jQuery(function ($) {
                   setTimeout(function () {
                     $('.filter_no_posts').remove();
                   }, 1000);
+                }
+
+                // No results in filtering
+                else {
+                  // No results
+
+                  postsWrapper.html("");
+                  postsWrapper.html('<p> No Results!!! </p>');
                 }
               }
             }
@@ -360,14 +370,9 @@ jQuery(function ($) {
   select.on('click', popup);
   loadMore.on("click", loadMoreApi);
 
-  // Open popups if we have terms inside
+  // Open Popup on Init
 
-  if (selectedCategories.length !== 0) {
-    $('.parent').trigger('click');
-  }
-  if (selectedCategoriesChildren.length !== 0) {
-    $('.child').trigger('click');
-  }
+  $('.posts_filter_top.open_init').trigger('click');
 });
 "use strict";
 

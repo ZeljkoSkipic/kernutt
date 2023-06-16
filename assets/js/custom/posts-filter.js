@@ -10,25 +10,26 @@ jQuery(function ($) {
     const select = $('.posts_filter_top');
     const filterTermsWrapper = $('.posts_filter_bottom');
     const loader = $('.filter_loader');
+    const mediaCategoriesWrapper = $('.media_cat');
 
     let selectedCategories = [];
     let selectedCategoriesChildren = [];
     var controller = null;
 
-     // Sync params with url function
+    // Sync params with url function
 
     const syncParamsWithUrl = () => {
         const currentUrl = window.location.href;
         const url = new URL(currentUrl);
 
-        if(url.searchParams.get('categories') !== null) {
+        if (url.searchParams.get('categories') !== null) {
             selectedCategories = url.searchParams.get('categories').split('-');
         }
 
-        if(url.searchParams.get('categoriesChildren') !== null) {
-           let selectedCategoriesChildrenUrl = url.searchParams.get('categoriesChildren').split('-');
+        if (url.searchParams.get('categoriesChildren') !== null) {
+            let selectedCategoriesChildrenUrl = url.searchParams.get('categoriesChildren').split('-');
 
-            if(selectedCategoriesChildrenUrl) {
+            if (selectedCategoriesChildrenUrl) {
                 selectedCategoriesChildrenUrl.forEach((child) => {
                     selectedCategoriesChildren.push({
                         parentID: $(`#${child}`).data('parent'),
@@ -43,16 +44,16 @@ jQuery(function ($) {
 
     const visualPanel = (selectedCategories, selectedCategoriesChildren) => {
 
-        
+
         filterPanel.html("");
 
         // Parent terms
 
-        if(selectedCategories.length !== 0) {
+        if (selectedCategories.length !== 0) {
             selectedCategories.map((catID) => {
                 const visualElem = $('<span> <span class="filter_panel_e_delete">&#10005;</span></span>');
                 visualElem.addClass('filter_panel_e');
-                const checkbox = $('#'+ catID +'');
+                const checkbox = $('#' + catID + '');
                 visualElem.attr('data-term-id', checkbox.val())
                 visualElem.prepend($('label[for="' + checkbox.val() + '"]').text());
                 filterPanel.append(visualElem);
@@ -61,15 +62,15 @@ jQuery(function ($) {
 
         // Child terms
 
-        if(selectedCategoriesChildren.length !== 0) {
+        if (selectedCategoriesChildren.length !== 0) {
             Object.keys(selectedCategoriesChildren).map((key) => {
                 const visualElem = $('<span> <span class="filter_panel_e_delete">&#10005;</span></span>');
                 visualElem.addClass('filter_panel_e');
-                const checkbox = $('#'+ selectedCategoriesChildren[key].ID +'');
+                const checkbox = $('#' + selectedCategoriesChildren[key].ID + '');
                 visualElem.attr('data-term-id', checkbox.val())
                 visualElem.prepend($('label[for="' + checkbox.val() + '"]').text());
                 const parent = $('.filter_panel_e[data-term-id="' + selectedCategoriesChildren[key].parentID + '"]');
-                if(parent.length !== 0) {
+                if (parent.length !== 0) {
                     parent.after(visualElem);
                 }
             })
@@ -96,8 +97,8 @@ jQuery(function ($) {
             controller.abort();
         }
 
-        // Loader 
-        
+        // Loader
+
         loader.removeClass('disabled');
 
         // Get Params from Url
@@ -107,14 +108,14 @@ jQuery(function ($) {
         let childParams = url.searchParams.get('categoriesChildren');
         let offset = url.searchParams.get('offset');
 
-        if(params) {
+        if (params) {
             params = params.split('-');
         }
 
-        if(childParams) {
+        if (childParams) {
             childParams = childParams.split('-');
         }
-        
+
         const data = new FormData();
         data.append("action", "posts_filter");
         data.append("nonce", theme.nonce);
@@ -148,34 +149,43 @@ jQuery(function ($) {
 
                 if (posts.load_more === false) {
                     postsWrapper.html("");
-                   
+
                     if (posts.child_categories.length !== 0) {
-                        childCategoriesWrapper.closest('.posts_filter').removeClass('disabled');
                         Object.keys(posts.child_categories).forEach(parentKey => {
-                            Object.keys(posts.child_categories[parentKey]).forEach( childKey => {
-                                if($(`#${posts.child_categories[parentKey][childKey].term_id}`).length === 0) {
-                                    childCategoriesWrapper.append(`
-                                    <div data-parent="${parentKey}">
-                                        <input data-parent="${parentKey}" data-child="true" class="post_categories" type="checkbox" id="${posts.child_categories[parentKey][childKey].term_id}" name="post-category" value="${posts.child_categories[parentKey][childKey].term_id}">
-                                        <label data-parent="${parentKey}" for="${posts.child_categories[parentKey][childKey].term_id}">${posts.child_categories[parentKey][childKey].name}</label>
-                                    </div>
-                                    `)
+                            Object.keys(posts.child_categories[parentKey]).forEach(childKey => {
+                                if ($(`#${posts.child_categories[parentKey][childKey].term_id}`).length === 0) {
+                                    if (parentKey == theme.mediaTypeCatID) {
+                                        mediaCategoriesWrapper.append(`
+                                            <div class='child-cat' data-parent="${parentKey}">
+                                                <input data-parent="${parentKey}" data-child="true" class="post_categories" type="checkbox" id="${posts.child_categories[parentKey][childKey].term_id}" name="post-category" value="${posts.child_categories[parentKey][childKey].term_id}">
+                                                <label data-parent="${parentKey}" for="${posts.child_categories[parentKey][childKey].term_id}">${posts.child_categories[parentKey][childKey].name}</label>
+                                            </div>
+                                        `)
+                                    }
+
+                                    else {
+                                        $(`#${parentKey}`).parent().after(`
+                                        <div class='child-cat' data-parent="${parentKey}">
+                                            <input data-parent="${parentKey}" data-child="true" class="post_categories" type="checkbox" id="${posts.child_categories[parentKey][childKey].term_id}" name="post-category" value="${posts.child_categories[parentKey][childKey].term_id}">
+                                            <label data-parent="${parentKey}" for="${posts.child_categories[parentKey][childKey].term_id}">${posts.child_categories[parentKey][childKey].name}</label>
+                                        </div>
+                                        `)
+
+                                    }
+
                                 }
                             });
                         });
-                    }
-
-                    else {
-                        childCategoriesWrapper.html('');
-                        childCategoriesWrapper.closest('.posts_filter').addClass('disabled');
                     }
                 }
 
                 postsWrapper.append(posts.posts_html);
             } else {
+
+                // No results in Load More
                 if (posts.load_more === true) {
 
-                    if($('.filter_no_posts').length === 0) {
+                    if ($('.filter_no_posts').length === 0) {
 
                         loadMore.after(`
                         <p class="filter_no_posts">${theme.loadMore}</p>
@@ -185,6 +195,16 @@ jQuery(function ($) {
                     setTimeout(() => {
                         $('.filter_no_posts').remove();
                     }, 1000)
+                }
+
+                // No results in filtering
+
+                else {
+
+                    // No results
+
+                    postsWrapper.html("");
+                    postsWrapper.html('<p> No Results!!! </p>')
                 }
             }
         }
@@ -222,7 +242,7 @@ jQuery(function ($) {
     const filter = (e) => {
         const current = $(e.currentTarget);
         const categoryID = current.val();
-        const checked  = current.prop("checked");
+        const checked = current.prop("checked");
 
         if (current.data('child') == true) {
 
@@ -233,7 +253,7 @@ jQuery(function ($) {
                 });
             } else {
 
-                selectedCategoriesChildren = selectedCategoriesChildren.filter((child) =>  {
+                selectedCategoriesChildren = selectedCategoriesChildren.filter((child) => {
                     return child.ID != categoryID
                 })
             }
@@ -278,7 +298,7 @@ jQuery(function ($) {
 
         url.searchParams.set('offset', offset);
         history.pushState({}, "", url);
-        
+
         filterAjaxRequest();
     };
 
@@ -286,7 +306,7 @@ jQuery(function ($) {
     const popup = (e) => {
         const current = $(e.currentTarget);
 
-        if(current.hasClass('open')) {
+        if (current.hasClass('open')) {
             current.removeClass('open');
             current.next(filterTermsWrapper).slideUp('fast', 'linear');
         }
@@ -295,7 +315,7 @@ jQuery(function ($) {
             current.addClass('open');
             current.next(filterTermsWrapper).slideDown('fast', 'linear');
         }
-       
+
     }
 
     $('body').on('change', categoryInput, filter);
@@ -303,13 +323,8 @@ jQuery(function ($) {
     select.on('click', popup);
     loadMore.on("click", loadMoreApi);
 
-    // Open popups if we have terms inside
 
-    if(selectedCategories.length !== 0 ) {
-        $('.parent').trigger('click')
-    }
+    // Open Popup on Init
 
-    if(selectedCategoriesChildren.length !== 0 ) {
-        $('.child').trigger('click')
-    }
+    $('.posts_filter_top.open_init').trigger('click');
 });

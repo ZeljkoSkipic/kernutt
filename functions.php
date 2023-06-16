@@ -23,10 +23,13 @@ function elegant_enqueue_css()
 	$cache_buster = date("YmdHi", filemtime( get_stylesheet_directory() . '/main.css'));
 	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/main.css', array(), $cache_buster, 'all' );
 
+    $media_type_cat = get_term_by('slug', 'media-type', 'category');
+
     $theme_options = [
-        'ajax_admin' => admin_url('admin-ajax.php'),
-        'nonce'      => wp_create_nonce('ajax-call-token'),
-        'loadMore'   => __('There are no more posts to display.', 'kernutt')
+        'ajax_admin'        => admin_url('admin-ajax.php'),
+        'nonce'             => wp_create_nonce('ajax-call-token'),
+        'loadMore'          => __('There are no more posts to display.', 'kernutt'),
+        'mediaTypeCatID'    => $media_type_cat ? $media_type_cat->term_id : ""
     ];
 
     wp_localize_script('kernutt-scripts', 'theme', $theme_options);

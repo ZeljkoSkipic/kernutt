@@ -4,7 +4,7 @@
 
 function blog_filter( $query ) {
 	if ( ! is_admin() && $query->is_main_query() && is_home() ) {
-		
+
 		$categories = (isset($_GET['categories']) && $_GET['categories'] ? wp_strip_all_tags($_GET['categories']) : "");
         $categories_children = (isset($_GET['categoriesChildren']) && $_GET['categoriesChildren'] ? wp_strip_all_tags($_GET['categoriesChildren']) : "");
         $offset = (isset($_GET['offset']) && $_GET['offset'] ? wp_strip_all_tags($_GET['offset']) : 0);
@@ -44,10 +44,13 @@ function blog_filter( $query ) {
 }
 add_action( 'pre_get_posts', 'blog_filter', 1 );
 
-// Filter Admin Terms (Show Just Parent terms)
+// Filter Admin Terms (Show Just Parent terms and Exclude Media Type)
 
 function filter_hide_child_taxonomies( $args, $field ) {
+    $media_type_cat = get_term_by('slug', 'media-type', 'category');
+    (string)  $media_type_ID = $media_type_cat ?  $media_type_cat->term_id : "";
     $args['parent'] = 0;
+    $args['exclude'] = $media_type_ID;
     return $args;
 }
 

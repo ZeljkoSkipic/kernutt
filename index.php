@@ -4,13 +4,25 @@ get_header();
 $title = get_field('blog_archive_title', 'option');
 $description = get_field('blog_archive_description', 'option');
 $image = get_field('blog_archive_image', 'option');
+$all_categories = get_terms(array(
+    'taxonomy'   => 'category',
+    'hide_empty' => false,
+));
+
 $categories = get_field('filter_terms', 'options');
+
+// Get Media type categorie
+
+$media_type_cat = array_filter((array) $all_categories, function ($term) {
+    return $term->slug === 'media-type';
+});
 
 // Remove Empty Terms
 
-$categories = array_filter($categories, function($term) {
-    return $term->count !== 0;
+$categories = array_filter((array) $categories, function ($term) {
+    return $term->count !== 0 && $term->slug !== 'media-type';
 });
+
 
 $categories_url = (isset($_GET['categories']) && $_GET['categories'] ? wp_strip_all_tags($_GET['categories']) : "");
 $categories_children_url = (isset($_GET['categoriesChildren']) && $_GET['categoriesChildren'] ? wp_strip_all_tags($_GET['categoriesChildren']) : "");
@@ -92,20 +104,37 @@ if ($categories_children_url) {
 
         </div>
         <div class="posts_filters_selection">
-            <?php if ($categories) : ?>
+
+            <?php if ($media_type_cat && array_shift(array_values($media_type_cat)) !== null) : $media_type_single = array_shift(array_values($media_type_cat))?>
 
                 <div class="posts_filter">
-                    <div class="posts_filter_top parent">
+                    <div class="posts_filter_top parent <?php if ($categories_url && in_array($media_type_single->term_id, $categories_url)) echo "open_init"; ?>">
                         <?php esc_html_e('Filter by medium', 'kernutt'); ?>
                     </div>
-                    <div style="display: none;" class="posts_filter_bottom">
+                    <div style="display: none;" class="posts_filter_bottom media_cat">
 
                         <?php
-                        foreach ($categories as $cat) :
+                        foreach ($media_type_cat as $cat) :
                         ?>
-                            <input <?php if ($categories_url && in_array($cat->term_id, $categories_url)) echo 'checked=checked'; ?> class="post_categories" type="checkbox" id="<?php echo $cat->term_id; ?>" name="post-category" value="<?php echo $cat->term_id; ?>">
-                            <label for="<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></label><br>
+                            <div class="parent-cat">
+                                <input <?php if ($categories_url && in_array($cat->term_id, $categories_url)) echo 'checked=checked'; ?> class="post_categories" type="checkbox" id="<?php echo $cat->term_id; ?>" name="post-category" value="<?php echo $cat->term_id; ?>">
+                                <label for="<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></label><br>
+                            </div>
+
+                            <?php
+                            if ($children_categories) :
+                                foreach ($children_categories as $child_category) :
+                                    if ($child_category->parent !== $cat->term_id) continue;
+                            ?>
+                                    <div class='child-cat' data-parent="<?php echo $child_category->parent; ?>">
+                                        <input <?php if ($categories_children_url && in_array($child_category->term_id, $categories_children_url)) echo "checked=checked"; ?> data-parent="<?php echo $child_category->parent; ?>" data-child="true" class="post_categories" type="checkbox" id="<?php echo $child_category->term_id; ?>" name="post-category" value="<?php echo $child_category->term_id; ?>">
+                                        <label data-parent="<?php echo $child_category->parent; ?>" for="<?php echo $child_category->term_id; ?>"><?php echo $child_category->name; ?></label>
+                                    </div>
+
                         <?php
+
+                                endforeach;
+                            endif;
                         endforeach;
                         ?>
 
@@ -114,23 +143,42 @@ if ($categories_children_url) {
 
             <?php endif; ?>
 
-            <div class="posts_filter content_filter <?php if(!$children_categories) echo "disabled"; ?>">
-                <div class="posts_filter_top child">
+            <div class="posts_filter content_filter">
+                <div class="posts_filter_top child <?php if($categories) foreach($categories as $cat) {
+    if ($categories_url && in_array($cat->term_id, $categories_url)) {
+        echo "open_init";
+        break;
+    }
+}  ?>">
                     <?php esc_html_e('Filter by content type', 'kernutt'); ?>
                 </div>
                 <div style="display: none;" class="posts_filter_bottom">
 
                     <?php
-                    if ($children_categories) {
-                        foreach ($children_categories as $child_category) {
+                    if ($categories) {
+                        foreach ($categories as $cat) {
 
                     ?>
-                            <div data-parent="<?php echo $child_category->parent; ?>">
-                                <input <?php if ($categories_children_url && in_array($child_category->term_id, $categories_children_url)) echo "checked=checked"; ?> data-parent="<?php echo $child_category->parent; ?>" data-child="true" class="post_categories" type="checkbox" id="<?php echo $child_category->term_id; ?>" name="post-category" value="<?php echo $child_category->term_id; ?>">
-                                <label data-parent="<?php echo $child_category->parent; ?>" for="<?php echo $child_category->term_id; ?>"><?php echo $child_category->name; ?></label>
+                            <div class="parent-cat">
+                                <input <?php if ($categories_url && in_array($cat->term_id, $categories_url)) echo 'checked=checked'; ?> class="post_categories" type="checkbox" id="<?php echo $cat->term_id; ?>" name="post-category" value="<?php echo $cat->term_id; ?>">
+                                <label for="<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></label><br>
                             </div>
 
+                            <?php
+
+                            if ($children_categories) :
+                                foreach ($children_categories as $child_category) :
+                                    if ($child_category->parent === $cat->term_id) :
+                            ?>
+                                        <div class='child-cat' data-parent="<?php echo $child_category->parent; ?>">
+                                            <input <?php if ($categories_children_url && in_array($child_category->term_id, $categories_children_url)) echo "checked=checked"; ?> data-parent="<?php echo $child_category->parent; ?>" data-child="true" class="post_categories" type="checkbox" id="<?php echo $child_category->term_id; ?>" name="post-category" value="<?php echo $child_category->term_id; ?>">
+                                            <label data-parent="<?php echo $child_category->parent; ?>" for="<?php echo $child_category->term_id; ?>"><?php echo $child_category->name; ?></label>
+                                        </div>
+
                     <?php
+                                    endif;
+                                endforeach;
+                            endif;
                         }
                     }
                     ?>
