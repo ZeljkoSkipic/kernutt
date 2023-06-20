@@ -96,23 +96,35 @@ function posts_posts_filter()
     $offset = (isset($_POST['offset']) && $_POST['offset'] ? wp_strip_all_tags($_POST['offset']) : "");
     $categories_children = (isset($_POST['categoriesChildren']) && $_POST['categoriesChildren'] ? wp_strip_all_tags($_POST['categoriesChildren']) : "");
 
-    if ($categories) {
+    // Media Type Category
 
-        $categories = explode(',', $categories);
+    $media_type_cat = get_term_by('slug', 'media-type', 'category');
+    (int)  $media_type_ID = $media_type_cat ?  $media_type_cat->term_id : "";
+
+    if ($categories || $categories_children) {
+
 
         $args = [
             'post_type'         => 'post',
             'posts_per_page'    => 10,
             'orderby'       => 'date',
             'order'         => 'DESC',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'category',
-                    'field'    => 'post_id',
-                    'terms'    => $categories,
-                ),
-            ),
         ];
+
+        // Add parents to query
+
+        if($categories || $media_type_ID) {
+
+            $categories = explode(',', $categories);
+
+            array_push($categories, $media_type_ID);
+
+            $args['tax_query'] [] = [
+                'taxonomy' => 'category',
+                'field'    => 'post_id',
+                'terms'    => $categories,
+            ];
+        }
 
         // Add Children to query
 
@@ -208,6 +220,13 @@ function posts_posts_filter()
             'posts_per_page' => 10,
             'orderby'       => 'date',
             'order'         => 'DESC',
+            'tax_query'     => [
+                [
+                    'taxonomy' => 'category',
+                    'field'    => 'post_id',
+                    'terms'    => $media_type_ID,
+                ]
+            ]
         ];
 
         // Add offset for pagination

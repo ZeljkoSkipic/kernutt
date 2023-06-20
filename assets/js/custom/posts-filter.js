@@ -73,6 +73,10 @@ jQuery(function ($) {
                 if (parent.length !== 0) {
                     parent.after(visualElem);
                 }
+
+                else {
+                    filterPanel.append(visualElem)
+                }
             })
         }
     }
@@ -154,25 +158,14 @@ jQuery(function ($) {
                         Object.keys(posts.child_categories).forEach(parentKey => {
                             Object.keys(posts.child_categories[parentKey]).forEach(childKey => {
                                 if ($(`#${posts.child_categories[parentKey][childKey].term_id}`).length === 0) {
-                                    if (parentKey == theme.mediaTypeCatID) {
-                                        mediaCategoriesWrapper.append(`
-                                            <div class='child-cat' data-parent="${parentKey}">
-                                                <input data-parent="${parentKey}" data-child="true" class="post_categories" type="checkbox" id="${posts.child_categories[parentKey][childKey].term_id}" name="post-category" value="${posts.child_categories[parentKey][childKey].term_id}">
-                                                <label data-parent="${parentKey}" for="${posts.child_categories[parentKey][childKey].term_id}">${posts.child_categories[parentKey][childKey].name}</label>
-                                            </div>
-                                        `)
-                                    }
-
-                                    else {
+                                    if (parentKey !== theme.mediaTypeCatID) {
                                         $(`#${parentKey}`).parent().after(`
                                         <div class='child-cat' data-parent="${parentKey}">
                                             <input data-parent="${parentKey}" data-child="true" class="post_categories" type="checkbox" id="${posts.child_categories[parentKey][childKey].term_id}" name="post-category" value="${posts.child_categories[parentKey][childKey].term_id}">
                                             <label data-parent="${parentKey}" for="${posts.child_categories[parentKey][childKey].term_id}">${posts.child_categories[parentKey][childKey].name}</label>
                                         </div>
                                         `)
-
                                     }
-
                                 }
                             });
                         });
@@ -204,7 +197,7 @@ jQuery(function ($) {
                     // No results
 
                     postsWrapper.html("");
-                    postsWrapper.html('<p> No Results!!! </p>')
+                    postsWrapper.html('<p class="filter_no_results"> No results for the given terms. </p>')
                 }
             }
         }

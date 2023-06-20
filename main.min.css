@@ -463,6 +463,7 @@ ul ul{list-style:circle !important}
 .posts_filters_selection .posts_filter .posts_filter_top{padding:10px;background-image:url(assets/icons/chevron-down.svg);background-position:center right 10px;background-repeat:no-repeat;padding-right:40px;-webkit-transition:.3s all;transition:.3s all}
 .posts_filters_selection .posts_filter .posts_filter_top.open{border-bottom:2px solid;background-image:url(assets/icons/chevron-up.svg);margin-bottom:-2px}
 .posts_filters_selection .posts_filter .posts_filter_bottom{padding:15px}
+.posts_filters_selection .posts_filter .posts_filter_bottom .child-cat{padding-left:10px;font-size:14px}
 .posts_filters_selection .posts_filter.disabled{opacity:.6;border-color:rgba(0,0,0,0.6);cursor:default;pointer-events:none}
 .posts_filters_selection .posts_filter.disabled .posts_filter_bottom{display:none !important}
 .posts_filters_selection .posts_filter:not(.disabled){cursor:pointer}

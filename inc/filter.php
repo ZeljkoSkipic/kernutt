@@ -9,12 +9,19 @@ function blog_filter( $query ) {
         $categories_children = (isset($_GET['categoriesChildren']) && $_GET['categoriesChildren'] ? wp_strip_all_tags($_GET['categoriesChildren']) : "");
         $offset = (isset($_GET['offset']) && $_GET['offset'] ? wp_strip_all_tags($_GET['offset']) : 0);
 
+        // Media Type Category
+
+        $media_type_cat = get_term_by('slug', 'media-type', 'category');
+        (int)  $media_type_ID = $media_type_cat ?  $media_type_cat->term_id : "";
+
         // Tax Query
 
         $tax_query = [];
 
-        if($categories) {
+        if($categories || $media_type_ID) {
             $categories = explode('-', $categories);
+            array_push($categories, $media_type_ID);
+
             array_push($tax_query, [
                 'taxonomy' => 'category',
                 'field'    => 'post_id',

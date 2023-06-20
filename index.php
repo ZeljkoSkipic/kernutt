@@ -17,6 +17,21 @@ $media_type_cat = array_filter((array) $all_categories, function ($term) {
     return $term->slug === 'media-type';
 });
 
+// Media type categories
+
+$media_type_categories = [];
+
+if ($media_type_cat && is_array($media_type_cat)) {
+    $media_type_cat_term = array_values($media_type_cat)[0];
+    $media_type_categories_IDs = get_term_children($media_type_cat_term->term_id, 'category');
+
+    if ($media_type_categories_IDs) {
+        foreach ($media_type_categories_IDs as $media_type_category_ID) {
+            $media_type_categories[] = get_term($media_type_category_ID, 'category');
+        }
+    }
+}
+
 // Remove Empty Terms
 
 $categories = array_filter((array) $categories, function ($term) {
@@ -105,37 +120,37 @@ if ($categories_children_url) {
         </div>
         <div class="posts_filters_selection">
 
-            <?php if ($media_type_cat && array_shift(array_values($media_type_cat)) !== null) : $media_type_single = array_shift(array_values($media_type_cat))?>
+            <?php if ($media_type_categories) : ?>
 
                 <div class="posts_filter">
-                    <div class="posts_filter_top parent <?php if ($categories_url && in_array($media_type_single->term_id, $categories_url)) echo "open_init"; ?>">
+                    <div class="posts_filter_top parent <?php foreach ($media_type_categories as $child_media_category) {
+
+                                                            if ($categories_children_url && in_array($child_media_category->term_id, $categories_children_url)) {
+                                                                echo "open_init";
+                                                                break;
+                                                            }
+
+                                                        } ?>">
                         <?php esc_html_e('Filter by medium', 'kernutt'); ?>
                     </div>
                     <div style="display: none;" class="posts_filter_bottom media_cat">
 
+
                         <?php
-                        foreach ($media_type_cat as $cat) :
+                        if (isset($media_type_categories) && $media_type_categories) :
+                            foreach ($media_type_categories as $child_category) :
+
                         ?>
-                            <div class="parent-cat">
-                                <input <?php if ($categories_url && in_array($cat->term_id, $categories_url)) echo 'checked=checked'; ?> class="post_categories" type="checkbox" id="<?php echo $cat->term_id; ?>" name="post-category" value="<?php echo $cat->term_id; ?>">
-                                <label for="<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></label><br>
-                            </div>
-
-                            <?php
-                            if ($children_categories) :
-                                foreach ($children_categories as $child_category) :
-                                    if ($child_category->parent !== $cat->term_id) continue;
-                            ?>
-                                    <div class='child-cat' data-parent="<?php echo $child_category->parent; ?>">
-                                        <input <?php if ($categories_children_url && in_array($child_category->term_id, $categories_children_url)) echo "checked=checked"; ?> data-parent="<?php echo $child_category->parent; ?>" data-child="true" class="post_categories" type="checkbox" id="<?php echo $child_category->term_id; ?>" name="post-category" value="<?php echo $child_category->term_id; ?>">
-                                        <label data-parent="<?php echo $child_category->parent; ?>" for="<?php echo $child_category->term_id; ?>"><?php echo $child_category->name; ?></label>
-                                    </div>
+                                <div class='child-cat' data-parent="<?php echo $child_category->parent; ?>">
+                                    <input <?php if ($categories_children_url && in_array($child_category->term_id, $categories_children_url)) echo "checked=checked"; ?> data-parent="<?php echo $child_category->parent; ?>" data-child="true" class="post_categories" type="checkbox" id="<?php echo $child_category->term_id; ?>" name="post-category" value="<?php echo $child_category->term_id; ?>">
+                                    <label data-parent="<?php echo $child_category->parent; ?>" for="<?php echo $child_category->term_id; ?>"><?php echo $child_category->name; ?></label>
+                                </div>
 
                         <?php
 
-                                endforeach;
-                            endif;
-                        endforeach;
+                            endforeach;
+                        endif;
+
                         ?>
 
                     </div>
@@ -144,12 +159,12 @@ if ($categories_children_url) {
             <?php endif; ?>
 
             <div class="posts_filter content_filter">
-                <div class="posts_filter_top child <?php if($categories) foreach($categories as $cat) {
-    if ($categories_url && in_array($cat->term_id, $categories_url)) {
-        echo "open_init";
-        break;
-    }
-}  ?>">
+                <div class="posts_filter_top child <?php if ($categories) foreach ($categories as $cat) {
+                                                        if ($categories_url && in_array($cat->term_id, $categories_url)) {
+                                                            echo "open_init";
+                                                            break;
+                                                        }
+                                                    }  ?>">
                     <?php esc_html_e('Filter by content type', 'kernutt'); ?>
                 </div>
                 <div style="display: none;" class="posts_filter_bottom">
@@ -189,10 +204,16 @@ if ($categories_children_url) {
     </div>
     <div class="posts_grid_inner">
         <?php
-        while (have_posts()) :
-            the_post();
-            get_template_part('template-parts/content', 'post');
-        endwhile;
+        if (have_posts()) :
+            while (have_posts()) :
+                the_post();
+                get_template_part('template-parts/content', 'post');
+            endwhile;
+        else :
+            ?>
+            <p class="filter_no_results"> <?php esc_html_e('No results for the given terms.', 'kernutt'); ?>  </p>
+            <?php
+        endif;
         ?>
     </div>
     <div class="load_more_container">
