@@ -557,6 +557,33 @@
                             "message": "Spotlight people are inserted <a href=\"\/wp-admin\/edit.php?post_type=spotlight\" target=\"_blank\">here<\/a>.",
                             "new_lines": "wpautop",
                             "esc_html": 0
+                        },
+                        {
+                            "key": "field_649d591d8c8ae",
+                            "label": "Select Spotlight",
+                            "name": "select_spotlight",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "spotlights": "Campus & Recent Grads",
+                                "experienced_staff": "Experienced Staff",
+                                "administration": "Administration"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -780,6 +807,7 @@
                                     "collapsed": "",
                                     "button_label": "Add Sub Content",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_64464c2ae6587",
                                     "sub_fields": [
                                         {
                                             "key": "field_644663841ec64",
@@ -823,8 +851,7 @@
                                             "delay": 0,
                                             "parent_repeater": "field_644663761ec63"
                                         }
-                                    ],
-                                    "parent_repeater": "field_64464c2ae6587"
+                                    ]
                                 }
                             ]
                         },
@@ -1011,5 +1038,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1682500955
+    "modified": 1688034360
 }

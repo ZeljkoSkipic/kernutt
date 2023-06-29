@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_63f7dfab23604",
-            "label": "Spotlights",
+            "label": "Campus & Recent Grads",
             "name": "spotlights",
             "aria-label": "",
             "type": "relationship",
@@ -19,6 +19,67 @@
             "post_type": [
                 "spotlight"
             ],
+            "post_status": "",
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "elements": [
+                "featured_image"
+            ]
+        },
+        {
+            "key": "field_649d57764c624",
+            "label": "Experienced Staff",
+            "name": "experienced_staff",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "spotlight"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "elements": [
+                "featured_image"
+            ]
+        },
+        {
+            "key": "field_649d57754c623",
+            "label": "Administration",
+            "name": "administration",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "spotlight"
+            ],
+            "post_status": "",
             "taxonomy": "",
             "filters": [
                 "search",
@@ -50,5 +111,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677265658
+    "modified": 1688033325
 }

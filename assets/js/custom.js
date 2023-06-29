@@ -157,6 +157,8 @@ jQuery(function ($) {
         var parent = $('.filter_panel_e[data-term-id="' + selectedCategoriesChildren[key].parentID + '"]');
         if (parent.length !== 0) {
           parent.after(visualElem);
+        } else {
+          filterPanel.append(visualElem);
         }
       });
     }
@@ -238,9 +240,7 @@ jQuery(function ($) {
                     Object.keys(posts.child_categories).forEach(function (parentKey) {
                       Object.keys(posts.child_categories[parentKey]).forEach(function (childKey) {
                         if ($("#".concat(posts.child_categories[parentKey][childKey].term_id)).length === 0) {
-                          if (parentKey == theme.mediaTypeCatID) {
-                            mediaCategoriesWrapper.append("\n                                            <div class='child-cat' data-parent=\"".concat(parentKey, "\">\n                                                <input data-parent=\"").concat(parentKey, "\" data-child=\"true\" class=\"post_categories\" type=\"checkbox\" id=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\" name=\"post-category\" value=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\">\n                                                <label data-parent=\"").concat(parentKey, "\" for=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\">").concat(posts.child_categories[parentKey][childKey].name, "</label>\n                                            </div>\n                                        "));
-                          } else {
+                          if (parentKey !== theme.mediaTypeCatID) {
                             $("#".concat(parentKey)).parent().after("\n                                        <div class='child-cat' data-parent=\"".concat(parentKey, "\">\n                                            <input data-parent=\"").concat(parentKey, "\" data-child=\"true\" class=\"post_categories\" type=\"checkbox\" id=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\" name=\"post-category\" value=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\">\n                                            <label data-parent=\"").concat(parentKey, "\" for=\"").concat(posts.child_categories[parentKey][childKey].term_id, "\">").concat(posts.child_categories[parentKey][childKey].name, "</label>\n                                        </div>\n                                        "));
                           }
                         }
@@ -265,7 +265,7 @@ jQuery(function ($) {
                   // No results
 
                   postsWrapper.html("");
-                  postsWrapper.html('<p> No Results!!! </p>');
+                  postsWrapper.html('<p class="filter_no_results"> No results for the given terms. </p>');
                 }
               }
             }

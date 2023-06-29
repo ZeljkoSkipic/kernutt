@@ -32,6 +32,12 @@ if ($media_type_cat && is_array($media_type_cat)) {
     }
 }
 
+// Remove empty media terms
+
+$media_type_categories = array_filter((array) $media_type_categories, function ($term) {
+    return $term->count !== 0;
+});
+
 // Remove Empty Terms
 
 $categories = array_filter((array) $categories, function ($term) {
@@ -216,8 +222,12 @@ if ($categories_children_url) {
         endif;
         ?>
     </div>
+
+
+
     <div class="load_more_container">
         <a class="et_pb_button load-more-filter" href="#"><?php esc_html_e('Load More', 'kernutt'); ?></a>
     </div>
+
 </div>
 <?php get_footer();
