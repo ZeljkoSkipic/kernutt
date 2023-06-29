@@ -22,8 +22,7 @@
             "post_status": "",
             "taxonomy": "",
             "filters": [
-                "search",
-                "post_type"
+                "search"
             ],
             "return_format": "object",
             "min": "",
@@ -52,8 +51,7 @@
             "post_status": "",
             "taxonomy": "",
             "filters": [
-                "search",
-                "post_type"
+                "search"
             ],
             "return_format": "object",
             "min": "",
@@ -82,8 +80,7 @@
             "post_status": "",
             "taxonomy": "",
             "filters": [
-                "search",
-                "post_type"
+                "search"
             ],
             "return_format": "object",
             "min": "",
@@ -111,5 +108,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688033325
+    "modified": 1688035725
 }
