@@ -90,11 +90,12 @@ if ($categories_children_url) {
     <div class="archive-hero__inner">
         <div class="archive-hero__left">
 
-            <?php if ($title) : ?>
-
-                <h1 class="heading-primary"><?php echo $title; ?></h1>
-
-            <?php endif; ?>
+            <?php
+			$hero_logo = get_field('hero_logo', 'option');
+			$size = 'full';
+			if( $hero_logo ) {
+				echo wp_get_attachment_image( $hero_logo, $size, "", array( "class" => "hero_logo" ) );
+			} ?>
 
             <?php if ($description) : ?>
 
@@ -121,9 +122,11 @@ if ($categories_children_url) {
 
 <div class="posts_grid">
     <div class="posts_filters">
+
         <div class="posts_filters_panel">
 
         </div>
+
         <div class="posts_filters_selection">
 
             <?php if ($media_type_categories) : ?>
@@ -207,6 +210,7 @@ if ($categories_children_url) {
                 </div>
             </div>
         </div>
+        <a class="blog_reset" href="<?php echo get_post_type_archive_link('post'); ?>"><?php esc_html_e('Clear All', 'kernutt'); ?></a>
     </div>
     <div class="posts_grid_inner">
         <?php

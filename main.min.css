@@ -25,6 +25,7 @@ a.zs-btn.et_pb_button::before{content:"" !important;background-color:#b36c26;hei
 .inner_form .gform_wrapper.gravity-theme .gform_footer{padding:0;margin:0}
 .inner_form .gform_footer button[type="submit"]{margin:0 !important;margin-left:auto !important;text-transform:uppercase;font-weight:600;font-size:13px;color:#fff;background-color:#b26c26;padding:10px 12px;border:0;border-radius:10px}
 .inner_form .gform_footer button[type="submit"]::after{content:none}
+.et_header_style_centered header#main-header{-webkit-box-shadow:none !important;box-shadow:none !important}
 .et_header_style_centered header#main-header .et_menu_container{padding-left:0;padding-right:0;text-align:left}
 .et_header_style_centered header#main-header .logo_container{background-color:#2d2a25;padding-left:30px;padding-right:30px}
 .et_header_style_centered header#main-header #et-top-navigation{padding:20px 30px !important;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%}
@@ -454,16 +455,23 @@ ul ul{list-style:circle !important}
 .kn_awards_page .year.year2021:nth-child(3) .award{border:0}
 .kn_awards_page .year.year2021:nth-child(4){width:50%}
 .kn_awards_page .year.year2020,.kn_awards_page .year.year2019,.kn_awards_page .year.year2018,.kn_awards_page .year.year2017,.kn_awards_page .year.year2016{width:25%}
+.blog .posts_grid{position:relative}
+.blog .archive-hero{background-color:#ced1d2;color:#000}
 .posts_filters{display:-webkit-box;display:-ms-flexbox;display:flex;margin-bottom:32px}
-.posts_filters .posts_filters_panel{-webkit-box-ordinal-group:3;-ms-flex-order:2;order:2}
-.posts_filters .filter_panel_e{padding:10px;background-color:#ced1d2;margin-right:10px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;margin-bottom:10px}
-.posts_filters .filter_panel_e .filter_panel_e_delete{cursor:pointer;margin-left:8px;font-size:10px;margin-top:2px;margin-bottom:-2px}
+.posts_filters .posts_filters_panel{-webkit-box-ordinal-group:4;-ms-flex-order:3;order:3;border-radius:10px;background-color:#fff;height:-webkit-fit-content;height:-moz-fit-content;height:fit-content}
+.posts_filters .filter_panel_e{padding:5px 10px;border:2px solid #b3b3b3;border-radius:10px;color:#b3b3b3;margin-right:10px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;margin-bottom:10px;font-weight:500;background-color:#fff}
+.posts_filters .filter_panel_e .filter_panel_e_delete{cursor:pointer;margin-left:8px;font-size:10px;margin-top:2px;margin-bottom:-2px;font-weight:700}
+.posts_filters .blog_reset{color:#b3b3b3;margin-top:8px;margin-right:10px;font-weight:500;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;-ms-flex-negative:0;flex-shrink:0;-webkit-box-ordinal-group:3;-ms-flex-order:2;order:2}
 .posts_filters_selection{display:-webkit-box;display:-ms-flexbox;display:flex}
-.posts_filters_selection .posts_filter{border:2px solid;margin-right:20px;height:-webkit-fit-content;height:-moz-fit-content;height:fit-content}
-.posts_filters_selection .posts_filter .posts_filter_top{padding:10px;background-image:url(assets/icons/chevron-down.svg);background-position:center right 10px;background-repeat:no-repeat;padding-right:40px;-webkit-transition:.3s all;transition:.3s all}
+.posts_filters_selection .posts_filter{margin-right:20px;height:-webkit-fit-content;height:-moz-fit-content;height:fit-content;background-color:#fff}
+.posts_filters_selection .posts_filter .posts_filter_top{padding:10px;background-image:url(assets/icons/chevron-down.svg);background-position:center right 10px;background-repeat:no-repeat;padding-right:40px;-webkit-transition:.3s all;transition:.3s all;border:2px solid;z-index:2;position:relative}
 .posts_filters_selection .posts_filter .posts_filter_top.open{border-bottom:2px solid;background-image:url(assets/icons/chevron-up.svg);margin-bottom:-2px}
-.posts_filters_selection .posts_filter .posts_filter_bottom{padding:15px}
+.posts_filters_selection .posts_filter .posts_filter_bottom{padding:15px;border:2px solid #b3b3b3;border-top:0}
 .posts_filters_selection .posts_filter .posts_filter_bottom .child-cat{padding-left:10px;font-size:14px}
+.posts_filters_selection .posts_filter .posts_filter_bottom label{position:relative;cursor:pointer}
+.posts_filters_selection .posts_filter .posts_filter_bottom label:before{content:"";display:block;width:17px;height:17px;position:absolute;left:-23px;top:-1px;background-image:url(assets/icons/circle.svg);background-size:15px;background-position:bottom left;background-repeat:no-repeat}
+.posts_filters_selection .posts_filter .posts_filter_bottom input{opacity:0}
+.posts_filters_selection .posts_filter .posts_filter_bottom input:checked+label::before{background-image:url(assets/icons/check-circle.svg)}
 .posts_filters_selection .posts_filter.disabled{opacity:.6;border-color:rgba(0,0,0,0.6);cursor:default;pointer-events:none}
 .posts_filters_selection .posts_filter.disabled .posts_filter_bottom{display:none !important}
 .posts_filters_selection .posts_filter:not(.disabled){cursor:pointer}
@@ -696,6 +704,9 @@ body:not(.is-using-mouse) .fancybox__container :focus{-webkit-box-shadow:0 0 0 1
 .career_media.layout-2 .career_media_col2{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}
 .awards_hero .awards_hero_left{width:50%}
 .awards_hero .awards_hero_right{width:50%}
+.blog .posts_grid{padding-top:80px}
+.posts_filters{position:absolute;top:0}
+.posts_filters .posts_filters_panel{padding-left:10px}
 #main-footer #footer-widgets{gap:22px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,auto)}
 #main-footer .wp-block-social-links{margin-top:-5px}
 }@media(min-width:797.6px) and (max-width:1199.5px){.services-template-single-services-partner .form-service .form-service__col3{width:50%}
@@ -817,6 +828,7 @@ body .mobile_nav .mobile_menu_bar::before{color:#2d2a25}
 .career_media{-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}
 .awards_hero{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
 .posts_filters{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
+.posts_filters .blog_reset{margin-bottom:8px}
 .posts_filters_selection .posts_filter{margin-bottom:10px}
 .posts_filters_selection .posts_filter:last-child{margin-right:0}
 #main-footer #footer-widgets{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;padding-bottom:35px}

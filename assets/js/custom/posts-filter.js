@@ -51,8 +51,11 @@ jQuery(function ($) {
 
         if (selectedCategories.length !== 0) {
             selectedCategories.map((catID) => {
-                const visualElem = $('<span> <span class="filter_panel_e_delete">&#10005;</span></span>');
+                const visualElem = $(`
+                <div> <span class="filter_panel_e_delete">&#10005;</span></div>`
+                );
                 visualElem.addClass('filter_panel_e');
+                visualElem.addClass('carousel-cell');
                 const checkbox = $('#' + catID + '');
                 visualElem.attr('data-term-id', checkbox.val())
                 visualElem.prepend($('label[for="' + checkbox.val() + '"]').text());
@@ -64,8 +67,9 @@ jQuery(function ($) {
 
         if (selectedCategoriesChildren.length !== 0) {
             Object.keys(selectedCategoriesChildren).map((key) => {
-                const visualElem = $('<span> <span class="filter_panel_e_delete">&#10005;</span></span>');
+                const visualElem = $('<div> <span class="filter_panel_e_delete">&#10005;</span></div>');
                 visualElem.addClass('filter_panel_e');
+                visualElem.addClass('carousel-cell');
                 const checkbox = $('#' + selectedCategoriesChildren[key].ID + '');
                 visualElem.attr('data-term-id', checkbox.val())
                 visualElem.prepend($('label[for="' + checkbox.val() + '"]').text());

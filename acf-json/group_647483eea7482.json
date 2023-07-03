@@ -1,6 +1,6 @@
 {
     "key": "group_647483eea7482",
-    "title": "Blog Archive (copy)",
+    "title": "Team Archive",
     "fields": [
         {
             "key": "field_647483eeae3af",
@@ -86,5 +86,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685357645
+    "modified": 1688401607
 }

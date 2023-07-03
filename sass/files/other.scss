@@ -274,27 +274,69 @@
 
 /* Blog */
 
+.blog {
+	.posts_grid {
+		position: relative;
+		@include limbo-min {
+			padding-top: 80px;
+		}
+	}
+	.archive-hero {
+		background-color: #ced1d2;
+		color: #000;
+	}
+}
+
 .posts_filters {
 	display: flex;
 	margin-bottom: 32px;
+
+	@include limbo-min {
+		position: absolute;
+		top: 0;
+	}
 	@include tab-max {
 		flex-direction: column;
 	}
 	.posts_filters_panel {
-		order: 2;
+		order: 3;
+		border-radius: 10px;
+		background-color: #fff;
+		height: fit-content;
+		@include limbo-min {
+			padding-left: 10px;
+
+		}
 	}
 	.filter_panel_e {
-		padding: 10px;
-		background-color: #ced1d2;
+		padding: 5px 10px;
+		border: 2px solid #b3b3b3;
+		border-radius: 10px;
+		color: #b3b3b3;
 		margin-right: 10px;
 		display: inline-flex;
 		margin-bottom: 10px;
+		font-weight: 500;
+		background-color: #fff;
 		.filter_panel_e_delete {
 			cursor: pointer;
 			margin-left: 8px;
 			font-size: 10px;
 			margin-top: 2px;
 			margin-bottom: -2px;
+			font-weight: 700;
+		}
+	}
+	.blog_reset {
+		color: #b3b3b3;
+		margin-top: 8px;
+		margin-right: 10px;
+		font-weight: 500;
+		width: fit-content;
+		flex-shrink: 0;
+		order: 2;
+		@include tab-max {
+			margin-bottom: 8px;
 		}
 	}
 }
@@ -304,9 +346,9 @@
 		flex-direction: column;
 	}
 	.posts_filter {
-		border: 2px solid;
 		margin-right: 20px;
 		height: fit-content;
+		background-color: #fff;
 		@include tab-max {
 			margin-bottom: 10px;
 			&:last-child {
@@ -326,6 +368,9 @@
 			background-repeat: no-repeat;
 			padding-right: 40px;
 			transition: .3s all;
+			border: 2px solid;
+			z-index: 2;
+			position: relative;
 			@include tab-min {
 				min-width: 270px;
 			}
@@ -338,9 +383,38 @@
 		}
 		.posts_filter_bottom {
 			padding: 15px;
+			border: 2px solid #b3b3b3;
+			border-top: none;
 			.child-cat {
 				padding-left: 10px;
 				font-size: 14px;
+			}
+			label {
+				position: relative;
+				cursor: pointer;
+				&:before {
+					content: "";
+					display: block;
+					width: 17px;
+					height: 17px;
+					position: absolute;
+					left: -23px;
+					top: -1px;
+					background-image: url(assets/icons/circle.svg);
+					background-size: 15px;
+					background-position: bottom left;
+					background-repeat: no-repeat;
+
+				}
+			}
+			input {
+				opacity: 0;
+				&:checked + label {
+					&::before {
+						background-image: url(assets/icons/check-circle.svg);
+
+					}
+				}
 			}
 		}
 		&.disabled {
