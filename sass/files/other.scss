@@ -284,6 +284,11 @@
 	.archive-hero {
 		background-color: #ced1d2;
 		color: #000;
+		.archive-hero__left {
+			img {
+				max-width: 350px;
+			}
+		}
 	}
 }
 
