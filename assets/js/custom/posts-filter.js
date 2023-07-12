@@ -16,6 +16,32 @@ jQuery(function ($) {
     let selectedCategoriesChildren = [];
     var controller = null;
 
+    // Init Slick Slider
+
+    $('.posts_filters_panel').slick({
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: false,
+        prevArrow: $('.slick-arrow-right'),
+        nextArrow: $('.slick-arrow-left'),
+        responsive: [
+            {
+              breakpoint: 798,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+              }
+            },
+            {
+              breakpoint: 580,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              }
+            }
+          ]
+    });
+
     // Sync params with url function
 
     const syncParamsWithUrl = () => {
@@ -45,7 +71,9 @@ jQuery(function ($) {
     const visualPanel = (selectedCategories, selectedCategoriesChildren) => {
 
 
-        filterPanel.html("");
+        //filterPanel.html("");
+
+        $('.filter_panel_e').remove();
 
         // Parent terms
 
@@ -55,11 +83,13 @@ jQuery(function ($) {
                 <div> <span class="filter_panel_e_delete">&#10005;</span></div>`
                 );
                 visualElem.addClass('filter_panel_e');
-                visualElem.addClass('carousel-cell');
                 const checkbox = $('#' + catID + '');
                 visualElem.attr('data-term-id', checkbox.val())
                 visualElem.prepend($('label[for="' + checkbox.val() + '"]').text());
-                filterPanel.append(visualElem);
+
+                $('.posts_filters_panel').slick("slickAdd", visualElem);
+
+               // filterPanel.append(visualElem);
             })
         }
 
@@ -69,26 +99,34 @@ jQuery(function ($) {
             Object.keys(selectedCategoriesChildren).map((key) => {
                 const visualElem = $('<div> <span class="filter_panel_e_delete">&#10005;</span></div>');
                 visualElem.addClass('filter_panel_e');
-                visualElem.addClass('carousel-cell');
                 const checkbox = $('#' + selectedCategoriesChildren[key].ID + '');
                 visualElem.attr('data-term-id', checkbox.val())
                 visualElem.prepend($('label[for="' + checkbox.val() + '"]').text());
                 const parent = $('.filter_panel_e[data-term-id="' + selectedCategoriesChildren[key].parentID + '"]');
+                const slickIndexParent = parseInt(parent.attr('data-slick-index'));
+
                 if (parent.length !== 0) {
-                    parent.after(visualElem);
+
+                    $('.posts_filters_panel').slick("slickAdd", visualElem, slickIndexParent );
+
+                   // parent.after(visualElem);
                 }
 
                 else {
-                    filterPanel.append(visualElem)
+
+                    $('.posts_filters_panel').slick("slickAdd", visualElem);
+                   // filterPanel.append(visualElem)
                 }
             })
         }
+
     }
 
     const visualPanelDelete = (e) => {
         const current = $(e.currentTarget);
         const currentID = current.closest('.filter_panel_e').data('term-id');
         $("#" + currentID + "").trigger('click');
+
     }
 
     // Sync params with url
@@ -282,6 +320,7 @@ jQuery(function ($) {
         urlApi(selectedCategories, selectedCategoriesChildren);
         visualPanel(selectedCategories, selectedCategoriesChildren);
         filterAjaxRequest();
+
     };
 
     const loadMoreApi = (e) => {

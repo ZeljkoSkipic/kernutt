@@ -106,6 +106,29 @@ jQuery(function ($) {
   var selectedCategoriesChildren = [];
   var controller = null;
 
+  // Init Slick Slider
+
+  $('.posts_filters_panel').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    infinite: false,
+    prevArrow: $('.slick-arrow-right'),
+    nextArrow: $('.slick-arrow-left'),
+    responsive: [{
+      breakpoint: 798,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3
+      }
+    }, {
+      breakpoint: 580,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }]
+  });
+
   // Sync params with url function
 
   var syncParamsWithUrl = function syncParamsWithUrl() {
@@ -130,7 +153,9 @@ jQuery(function ($) {
   // Visual Panel Function
 
   var visualPanel = function visualPanel(selectedCategories, selectedCategoriesChildren) {
-    filterPanel.html("");
+    //filterPanel.html("");
+
+    $('.filter_panel_e').remove();
 
     // Parent terms
 
@@ -138,11 +163,12 @@ jQuery(function ($) {
       selectedCategories.map(function (catID) {
         var visualElem = $("\n                <div> <span class=\"filter_panel_e_delete\">&#10005;</span></div>");
         visualElem.addClass('filter_panel_e');
-        visualElem.addClass('carousel-cell');
         var checkbox = $('#' + catID + '');
         visualElem.attr('data-term-id', checkbox.val());
         visualElem.prepend($('label[for="' + checkbox.val() + '"]').text());
-        filterPanel.append(visualElem);
+        $('.posts_filters_panel').slick("slickAdd", visualElem);
+
+        // filterPanel.append(visualElem);
       });
     }
 
@@ -152,19 +178,23 @@ jQuery(function ($) {
       Object.keys(selectedCategoriesChildren).map(function (key) {
         var visualElem = $('<div> <span class="filter_panel_e_delete">&#10005;</span></div>');
         visualElem.addClass('filter_panel_e');
-        visualElem.addClass('carousel-cell');
         var checkbox = $('#' + selectedCategoriesChildren[key].ID + '');
         visualElem.attr('data-term-id', checkbox.val());
         visualElem.prepend($('label[for="' + checkbox.val() + '"]').text());
         var parent = $('.filter_panel_e[data-term-id="' + selectedCategoriesChildren[key].parentID + '"]');
+        var slickIndexParent = parseInt(parent.attr('data-slick-index'));
         if (parent.length !== 0) {
-          parent.after(visualElem);
+          $('.posts_filters_panel').slick("slickAdd", visualElem, slickIndexParent);
+
+          // parent.after(visualElem);
         } else {
-          filterPanel.append(visualElem);
+          $('.posts_filters_panel').slick("slickAdd", visualElem);
+          // filterPanel.append(visualElem)
         }
       });
     }
   };
+
   var visualPanelDelete = function visualPanelDelete(e) {
     var current = $(e.currentTarget);
     var currentID = current.closest('.filter_panel_e').data('term-id');

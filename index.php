@@ -91,11 +91,11 @@ if ($categories_children_url) {
         <div class="archive-hero__left">
 
             <?php
-			$hero_logo = get_field('hero_logo', 'option');
-			$size = 'full';
-			if( $hero_logo ) {
-				echo wp_get_attachment_image( $hero_logo, $size, "", array( "class" => "hero_logo" ) );
-			} ?>
+            $hero_logo = get_field('hero_logo', 'option');
+            $size = 'full';
+            if ($hero_logo) {
+                echo wp_get_attachment_image($hero_logo, $size, "", array("class" => "hero_logo"));
+            } ?>
 
             <?php if ($description) : ?>
 
@@ -123,8 +123,26 @@ if ($categories_children_url) {
 <div class="posts_grid">
     <div class="posts_filters">
 
-        <div class="posts_filters_panel">
+        <div class="filter-wrapper">
+            <div class="arrows">
 
+                <svg class="slick-arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <g>
+                        <path d="M12,2A10,10,0,1,0,22,12,10.011,10.011,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,12,20Z" />
+                        <polygon points="13.293 7.293 8.586 12 13.293 16.707 14.707 15.293 11.414 12 14.707 8.707 13.293 7.293" />
+                    </g>
+                </svg>
+                <svg class="slick-arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <g>
+                        <path d="M12,2A10,10,0,1,0,22,12,10.011,10.011,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,12,20Z" />
+                        <polygon points="9.293 8.707 12.586 12 9.293 15.293 10.707 16.707 15.414 12 10.707 7.293 9.293 8.707" />
+                    </g>
+                </svg>
+
+            </div>
+            <div class="posts_filters_panel">
+
+            </div>
         </div>
 
         <div class="posts_filters_selection">
@@ -138,7 +156,6 @@ if ($categories_children_url) {
                                                                 echo "open_init";
                                                                 break;
                                                             }
-
                                                         } ?>">
                         <?php esc_html_e('Filter by medium', 'kernutt'); ?>
                     </div>
@@ -220,9 +237,9 @@ if ($categories_children_url) {
                 get_template_part('template-parts/content', 'post');
             endwhile;
         else :
-            ?>
-            <p class="filter_no_results"> <?php esc_html_e('No results for the given terms.', 'kernutt'); ?>  </p>
-            <?php
+        ?>
+            <p class="filter_no_results"> <?php esc_html_e('No results for the given terms.', 'kernutt'); ?> </p>
+        <?php
         endif;
         ?>
     </div>
