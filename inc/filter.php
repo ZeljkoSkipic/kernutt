@@ -3,11 +3,11 @@
 // Filter after page refresh
 
 function blog_filter( $query ) {
-	if ( ! is_admin() && $query->is_main_query() && is_home() ) {
+	if ( ! is_admin() && $query->is_main_query() && $query->is_home() ) {
 
 		$categories = (isset($_GET['categories']) && $_GET['categories'] ? wp_strip_all_tags($_GET['categories']) : "");
         $categories_children = (isset($_GET['categoriesChildren']) && $_GET['categoriesChildren'] ? wp_strip_all_tags($_GET['categoriesChildren']) : "");
-        $offset = (isset($_GET['offset']) && $_GET['offset'] ? wp_strip_all_tags($_GET['offset']) : 0);
+        $offset = (isset($_GET['offset']) && $_GET['offset'] ? wp_strip_all_tags($_GET['offset']) : 10);
 
         // Media Type Category
 
@@ -21,6 +21,12 @@ function blog_filter( $query ) {
         if($categories || $media_type_ID) {
             $categories = explode('-', $categories);
             array_push($categories, $media_type_ID);
+
+            $categories = array_filter($categories, function($term) {
+                return $term;
+            });
+
+            $categories = array_values($categories);
 
             array_push($tax_query, [
                 'taxonomy' => 'category',
@@ -42,9 +48,10 @@ function blog_filter( $query ) {
             $tax_query['relation'] = "AND";
         }
 
-
         $query->set('tax_query', $tax_query);
-        $query->set('posts_per_page', 10 + $offset);
+        $query->set('posts_per_page', $offset);
+        $query->set('orderby', 'date');
+        $query->set('order', 'DESC');
 
 		return;
 	}

@@ -428,8 +428,11 @@
 }
 .posts_filters_selection {
 	display: flex;
-	@include tab-min {
+	@include limbo-min {
 		width: 580px;
+	}
+	@include tab-only {
+		width: 500px;
 	}
 	/* @include tab-max {
 		margin-top: 50px;
@@ -471,7 +474,7 @@
 			border: 2px solid;
 			z-index: 2;
 			position: relative;
-			@include tab-min {
+			@include limbo-min {
 				min-width: 270px;
 			}
 			&.open {

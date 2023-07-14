@@ -1,6 +1,11 @@
 <?php
 
 get_header();
+global $wp_query;
+
+$total_posts = $wp_query->found_posts;
+$offset = (isset($_GET['offset']) && $_GET['offset'] ? wp_strip_all_tags($_GET['offset']) : "");
+
 $title = get_field('blog_archive_title', 'option');
 $description = get_field('blog_archive_description', 'option');
 $image = get_field('blog_archive_image', 'option');
@@ -227,7 +232,9 @@ if ($categories_children_url) {
                 </div>
             </div>
         </div>
-        <a class="blog_reset" href="<?php echo get_post_type_archive_link('post'); ?>"><?php esc_html_e('Clear All', 'kernutt'); ?></a>
+
+        <a class="blog_reset <?php if(!$categories_url || !$categories_children_url) echo "hidden"; ?>" href="<?php echo get_post_type_archive_link('post'); ?>"><?php esc_html_e('Clear All', 'kernutt'); ?></a>
+
     </div>
     <div class="posts_grid_inner">
         <?php
@@ -244,10 +251,8 @@ if ($categories_children_url) {
         ?>
     </div>
 
-
-
     <div class="load_more_container">
-        <a class="et_pb_button load-more-filter" href="#"><?php esc_html_e('Load More', 'kernutt'); ?></a>
+        <a class="et_pb_button load-more-filter <?php if($offset >= $total_posts) echo "hidden"; ?>" href="#"><?php esc_html_e('Load More', 'kernutt'); ?></a>
     </div>
 
 </div>

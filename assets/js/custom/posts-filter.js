@@ -11,6 +11,7 @@ jQuery(function ($) {
     const filterTermsWrapper = $('.posts_filter_bottom');
     const loader = $('.filter_loader');
     const mediaCategoriesWrapper = $('.media_cat');
+    const reset = $('.blog_reset');
 
     let selectedCategories = [];
     let selectedCategoriesChildren = [];
@@ -75,6 +76,15 @@ jQuery(function ($) {
 
         $('.filter_panel_e').remove();
 
+        // Remove or show reset filters
+
+        if(selectedCategories.length !== 0 || selectedCategoriesChildren.length !== 0) {
+            reset.removeClass('hidden');
+        }
+        else {
+            reset.addClass('hidden');
+        }
+
         // Parent terms
 
         if (selectedCategories.length !== 0) {
@@ -137,7 +147,7 @@ jQuery(function ($) {
 
     visualPanel(selectedCategories, selectedCategoriesChildren);
 
-    const filterAjaxRequest = async () => {
+    const filterAjaxRequest = async (isLoadMore = false) => {
 
         if (controller) {
             controller.abort();
@@ -152,7 +162,7 @@ jQuery(function ($) {
         const url = new URL(currentUrl);
         let params = url.searchParams.get('categories');
         let childParams = url.searchParams.get('categoriesChildren');
-        let offset = url.searchParams.get('offset');
+        const offset = postsWrapper.children().length;
 
         if (params) {
             params = params.split('-');
@@ -168,7 +178,9 @@ jQuery(function ($) {
         data.append("categories", params !== null ? params : "");
         data.append("categoriesChildren", childParams !== null ? childParams : "");
 
-        if (offset !== null) data.append("offset", offset);
+        if (isLoadMore === true) {
+            data.append("offset", offset);
+        }
 
         controller = new AbortController();
         let signal = controller.signal;
@@ -214,7 +226,30 @@ jQuery(function ($) {
                     }
                 }
 
+
                 postsWrapper.append(posts.posts_html);
+
+                // Update Url just for offset
+
+                const offset = postsWrapper.children().length;
+
+                const currentUrl = window.location.href;
+                const url = new URL(currentUrl);
+                url.searchParams.set('offset', offset);
+                history.pushState({}, "", url);
+
+
+                // Hide Load More When Needed
+
+                if(offset >= posts.total) {
+                    loadMore.addClass('hidden');
+                }
+
+                else {
+                    loadMore.removeClass('hidden');
+                }
+
+
             } else {
 
                 // No results in Load More
@@ -263,12 +298,6 @@ jQuery(function ($) {
             url.searchParams.set("categoriesChildren", childParamsIDs.join("-"));
         } else {
             url.searchParams.delete("categoriesChildren");
-        }
-
-        if (offset && offset !== null) {
-            url.searchParams.set("offset", offset);
-        } else {
-            url.searchParams.delete("offset");
         }
 
         history.pushState({}, "", url);
@@ -325,17 +354,7 @@ jQuery(function ($) {
 
     const loadMoreApi = (e) => {
         e.preventDefault();
-
-        const currentUrl = window.location.href;
-        const url = new URL(currentUrl);
-        const offset = postsWrapper.children().length;
-
-        // Update Url just for offset
-
-        url.searchParams.set('offset', offset);
-        history.pushState({}, "", url);
-
-        filterAjaxRequest();
+        filterAjaxRequest(true);
     };
 
 

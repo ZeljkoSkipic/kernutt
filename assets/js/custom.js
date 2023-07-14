@@ -102,6 +102,7 @@ jQuery(function ($) {
   var filterTermsWrapper = $('.posts_filter_bottom');
   var loader = $('.filter_loader');
   var mediaCategoriesWrapper = $('.media_cat');
+  var reset = $('.blog_reset');
   var selectedCategories = [];
   var selectedCategoriesChildren = [];
   var controller = null;
@@ -157,6 +158,14 @@ jQuery(function ($) {
 
     $('.filter_panel_e').remove();
 
+    // Remove or show reset filters
+
+    if (selectedCategories.length !== 0 || selectedCategoriesChildren.length !== 0) {
+      reset.removeClass('hidden');
+    } else {
+      reset.addClass('hidden');
+    }
+
     // Parent terms
 
     if (selectedCategories.length !== 0) {
@@ -210,10 +219,24 @@ jQuery(function ($) {
   visualPanel(selectedCategories, selectedCategoriesChildren);
   var filterAjaxRequest = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var currentUrl, url, params, childParams, offset, data, signal, request, posts;
+      var isLoadMore,
+        currentUrl,
+        url,
+        params,
+        childParams,
+        offset,
+        data,
+        signal,
+        request,
+        posts,
+        _offset,
+        _currentUrl,
+        _url,
+        _args = arguments;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
+            isLoadMore = _args.length > 0 && _args[0] !== undefined ? _args[0] : false;
             if (controller) {
               controller.abort();
             }
@@ -227,7 +250,7 @@ jQuery(function ($) {
             url = new URL(currentUrl);
             params = url.searchParams.get('categories');
             childParams = url.searchParams.get('categoriesChildren');
-            offset = url.searchParams.get('offset');
+            offset = postsWrapper.children().length;
             if (params) {
               params = params.split('-');
             }
@@ -239,26 +262,28 @@ jQuery(function ($) {
             data.append("nonce", theme.nonce);
             data.append("categories", params !== null ? params : "");
             data.append("categoriesChildren", childParams !== null ? childParams : "");
-            if (offset !== null) data.append("offset", offset);
+            if (isLoadMore === true) {
+              data.append("offset", offset);
+            }
             controller = new AbortController();
             signal = controller.signal;
-            _context.next = 19;
+            _context.next = 20;
             return fetch(theme.ajax_admin, {
               method: "POST",
               body: data,
               signal: signal
             });
-          case 19:
+          case 20:
             request = _context.sent;
             if (request.ok) {
-              _context.next = 22;
+              _context.next = 23;
               break;
             }
             throw new Error("HTTP error! status: ".concat(request.status));
-          case 22:
-            _context.next = 24;
+          case 23:
+            _context.next = 25;
             return request.json();
-          case 24:
+          case 25:
             posts = _context.sent;
             // loader
 
@@ -281,6 +306,21 @@ jQuery(function ($) {
                   }
                 }
                 postsWrapper.append(posts.posts_html);
+
+                // Update Url just for offset
+                _offset = postsWrapper.children().length;
+                _currentUrl = window.location.href;
+                _url = new URL(_currentUrl);
+                _url.searchParams.set('offset', _offset);
+                history.pushState({}, "", _url);
+
+                // Hide Load More When Needed
+
+                if (_offset >= posts.total) {
+                  loadMore.addClass('hidden');
+                } else {
+                  loadMore.removeClass('hidden');
+                }
               } else {
                 // No results in Load More
                 if (posts.load_more === true) {
@@ -301,7 +341,7 @@ jQuery(function ($) {
                 }
               }
             }
-          case 27:
+          case 28:
           case "end":
             return _context.stop();
         }
@@ -328,11 +368,6 @@ jQuery(function ($) {
       url.searchParams.set("categoriesChildren", childParamsIDs.join("-"));
     } else {
       url.searchParams.delete("categoriesChildren");
-    }
-    if (offset && offset !== null) {
-      url.searchParams.set("offset", offset);
-    } else {
-      url.searchParams.delete("offset");
     }
     history.pushState({}, "", url);
   };
@@ -377,15 +412,7 @@ jQuery(function ($) {
   };
   var loadMoreApi = function loadMoreApi(e) {
     e.preventDefault();
-    var currentUrl = window.location.href;
-    var url = new URL(currentUrl);
-    var offset = postsWrapper.children().length;
-
-    // Update Url just for offset
-
-    url.searchParams.set('offset', offset);
-    history.pushState({}, "", url);
-    filterAjaxRequest();
+    filterAjaxRequest(true);
   };
   var popup = function popup(e) {
     var current = $(e.currentTarget);

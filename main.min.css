@@ -25,6 +25,7 @@ a.zs-btn.et_pb_button::before{content:"" !important;background-color:#b36c26;hei
 .inner_form .gform_wrapper.gravity-theme .gform_footer{padding:0;margin:0}
 .inner_form .gform_footer button[type="submit"]{margin:0 !important;margin-left:auto !important;text-transform:uppercase;font-weight:600;font-size:13px;color:#fff;background-color:#b26c26;padding:10px 12px;border:0;border-radius:10px}
 .inner_form .gform_footer button[type="submit"]::after{content:none}
+.hidden{display:none}
 .et_header_style_centered header#main-header{-webkit-box-shadow:none !important;box-shadow:none !important}
 .et_header_style_centered header#main-header .et_menu_container{padding-left:0;padding-right:0;text-align:left}
 .et_header_style_centered header#main-header .logo_container{background-color:#2d2a25;padding-left:30px;padding-right:30px}
@@ -695,13 +696,12 @@ body:not(.is-using-mouse) .fancybox__container :focus{-webkit-box-shadow:0 0 0 1
 }@media(min-width:599.6px){.home_sec_1 .sec_1_boxes .box img{height:313px}
 .single-industry .kn_industry_accordion .kn_blurbs .kn_blurbs_left,.single-industry .kn_industry_accordion .kn_blurbs .kn_blurbs_right{width:calc(50% - 17.5px)}
 .single-industry .kn_industry_accordion .kn_blurbs .kn_blurbs_left{margin-right:35px}
-.posts_filters_selection{width:580px}
-.posts_filters_selection .posts_filter .posts_filter_top{min-width:270px}
 }@media(min-width:599.6px) and (max-width:797.5px){.home_sec_1 .sec_1_boxes .box{width:49%;margin-bottom:16px}
 .single-industry .kn_industry_sec_2 .kn_is_2_col_1{width:50%}
 .single-industry .kn_industry_sec_2 .kn_is_2_col_2{width:50%;padding-left:35px}
 .posts_grid_inner .posts_grid_item{width:49%}
 .posts_grid_inner .posts_grid_item:nth-child(odd){margin-right:2%}
+.posts_filters_selection{width:500px}
 .posts_filters_selection .posts_filter{width:calc(50% - 5px)}
 #main-footer .ks_footer_widget_2{width:48%}
 #main-footer .ks_footer_widget_3{width:48%}
@@ -733,6 +733,8 @@ body:not(.is-using-mouse) .fancybox__container :focus{-webkit-box-shadow:0 0 0 1
 .career_media.layout-2 .career_media_col2{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}
 .awards_hero .awards_hero_left{width:50%}
 .awards_hero .awards_hero_right{width:50%}
+.posts_filters_selection{width:580px}
+.posts_filters_selection .posts_filter .posts_filter_top{min-width:270px}
 #main-footer #footer-widgets{gap:22px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,auto)}
 #main-footer .wp-block-social-links{margin-top:-5px}
 }@media(min-width:797.6px) and (max-width:1199.5px){.services-template-single-services-partner .form-service .form-service__col3{width:50%}

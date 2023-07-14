@@ -11,7 +11,7 @@ function posts_load_more()
         die('Nonce key is invalid!');
     }
 
-    $offset = (isset($_POST['offset']) && $_POST['offset'] ? wp_strip_all_tags($_POST['offset']) : "");
+    $offset = (isset($_POST['offset']) && $_POST['offset'] ? (int) wp_strip_all_tags($_POST['offset']) : "");
     $user = (isset($_POST['user']) && $_POST['user'] ? wp_strip_all_tags($_POST['user']) : "");
     $category = (isset($_POST['cat']) && $_POST['cat'] ? wp_strip_all_tags($_POST['cat']) : "");
 
@@ -106,9 +106,10 @@ function posts_posts_filter()
 
         $args = [
             'post_type'         => 'post',
-            'posts_per_page'    => 10,
-            'orderby'       => 'date',
-            'order'         => 'DESC',
+            'posts_per_page'    =>  10,
+            'orderby'           => 'date',
+            'order'             => 'DESC',
+            'post_status'       => 'publish'
         ];
 
         // Add parents to query
@@ -118,6 +119,12 @@ function posts_posts_filter()
             $categories = explode(',', $categories);
 
             array_push($categories, $media_type_ID);
+
+            $categories = array_filter($categories, function($term) {
+                return $term;
+            });
+
+            $categories = array_values($categories);
 
             $args['tax_query'] [] = [
                 'taxonomy' => 'category',
@@ -149,18 +156,16 @@ function posts_posts_filter()
 
         $offset ? $load_more = true :  $load_more = false;
 
-        $posts = get_posts($args);
+        $posts = new WP_Query ($args);
 
-        if ($posts) {
+        if ($posts->have_posts()) {
             ob_start();
-            foreach ($posts as $post_single) {
-                global $post;
-                $post = $post_single;
-                setup_postdata($post);
+            while ($posts->have_posts()) {
+                $posts->the_post();
                 get_template_part('template-parts/content', 'post');
             }
 
-            wp_reset_postdata();
+            wp_reset_query();
 
             $posts_html = ob_get_clean();
 
@@ -182,6 +187,7 @@ function posts_posts_filter()
                 }
             }
 
+
             // Delete empty terms
 
             if ($child_categories) {
@@ -195,10 +201,21 @@ function posts_posts_filter()
                 }
             }
 
+            // Sort By Name
+
+            if($child_categories) {
+                foreach($child_categories as $key => $child_cat_array) {
+                    usort($child_cat_array, function($a, $b) {return strcmp($b->name, $a->name);});
+                    $child_categories[$key] = $child_cat_array;
+                }
+
+            }
+
             $response = [
                 'posts_html'        =>  $posts_html,
                 'child_categories'  =>  $child_categories,
-                'load_more'         =>  $load_more
+                'load_more'         =>  $load_more,
+                'total'             =>  $posts->found_posts
             ];
 
             wp_send_json($response, 200);
@@ -208,11 +225,13 @@ function posts_posts_filter()
             $response = [
                 'posts_html'        =>  [],
                 'child_categories'  =>  [],
-                'load_more'         =>  $load_more
+                'load_more'         =>  $load_more,
+                'total'             =>  $posts->found_posts
             ];
 
             wp_send_json($response, 200);
         }
+
     } else {
 
         $args = [
@@ -220,40 +239,41 @@ function posts_posts_filter()
             'posts_per_page' => 10,
             'orderby'       => 'date',
             'order'         => 'DESC',
+            'post_status' => 'publish',
             'tax_query'     => [
                 [
                     'taxonomy' => 'category',
                     'field'    => 'post_id',
-                    'terms'    => $media_type_ID,
+                    'terms'    => [$media_type_ID]
                 ]
             ]
         ];
 
         // Add offset for pagination
 
-        $offset ? $args['offset'] =  $offset : "";
+        $offset ? $args['offset'] =  $offset  : "";
 
         $offset ? $load_more = true :  $load_more = false;
 
-        $posts = get_posts($args);
+        $posts = new WP_Query($args);
 
-        if ($posts) {
+        if ($posts->have_posts()) {
             ob_start();
-            foreach ($posts as $post_single) {
-                global $post;
-                $post = $post_single;
-                setup_postdata($post);
+            while ($posts->have_posts()) {
+                $posts->the_post();
                 get_template_part('template-parts/content', 'post');
             }
 
-            wp_reset_postdata();
+            wp_reset_query();
 
             $posts_html = ob_get_clean();
 
             $response = [
                 'posts_html'        =>  $posts_html,
                 'child_categories'  =>  [],
-                'load_more'         =>  $load_more
+                'load_more'         =>  $load_more,
+                'total'             =>  $posts->found_posts,
+                'offset'            =>  $offset
             ];
 
             wp_send_json($response, 200);
@@ -264,7 +284,8 @@ function posts_posts_filter()
             $response = [
                 'posts_html'        =>  [],
                 'child_categories'  =>  [],
-                'load_more'         =>  $load_more
+                'load_more'         =>  $load_more,
+                'total'             =>  $posts->found_posts
             ];
 
             wp_send_json($response, 200);
