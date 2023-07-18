@@ -94,6 +94,26 @@
             "field_type": "multi_select",
             "allow_null": 0,
             "multiple": 0
+        },
+        {
+            "key": "field_64b65e7abaadd",
+            "label": "Embed Code",
+            "name": "embed_code",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Link the word(s) that you want to open this popup, and assign a class 'lb_trigger' to it.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -114,5 +134,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688401647
+    "modified": 1689673532
 }

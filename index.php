@@ -256,4 +256,11 @@ if ($categories_children_url) {
     </div>
 
 </div>
+
+<div class="ks_lightbox">
+	<span class="lb_close">Close</span>
+	<div class="et_pb_row">
+		<?php the_field('embed_code', 'option'); ?>
+	</div>
+</div>
 <?php get_footer();

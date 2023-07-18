@@ -6,4 +6,16 @@ jQuery(document).ready(function ($) {
 	  $(this).parent('.kn_accordion').toggleClass('open')
   });
 
+  $(".lb_trigger").click(function () {
+	$('.ks_lightbox').fadeToggle();
+	$('body').addClass('no_overflow');
+});
+
+$(".lb_close").click(function () {
+	$('.ks_lightbox').fadeToggle();
+	$('body').removeClass('no_overflow');
+});
+
+
+
   });

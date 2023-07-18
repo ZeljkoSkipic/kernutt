@@ -535,6 +535,66 @@
 	}
 }
 
+.lb_trigger {
+	cursor: pointer;
+}
+
+.ks_lightbox {
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 99999;
+	display: none;
+	.et_pb_row {
+		padding-top: 56px;
+	}
+	@include tab-max {
+		.et_pb_row {
+			width: 90%;
+		}
+	}
+}
+
+.no_overflow {
+	overflow: hidden;
+}
+
+.lb_close {
+	cursor: pointer;
+	position: absolute;
+	background-color: #B26C26;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+	color: #fff;
+	transition: .3s ease-in-out;
+	z-index: 100000;
+	@include limbo-min {
+		top: 25px;
+		right: 25px;
+		width: 50px;
+		height: 50px;
+		&:hover {
+			width: 55px;
+			height: 55px;
+			top: 22.5px;
+			right: 22.5px;
+		}
+	}
+	@include tab-max {
+		top: 15px;
+		right: 15px;
+		width: 45px;
+		height: 30px;
+	}
+}
+
 /* Filter Loader */
 
 .filter_loader {
