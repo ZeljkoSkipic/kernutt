@@ -235,7 +235,7 @@ if ($categories_children_url) {
     </div>
 
     <div class="load_more_container">
-        <a class="et_pb_button load-more-filter <?php if($offset >= $total_posts) echo "hidden"; ?>" href="#"><?php esc_html_e('Load More', 'kernutt'); ?></a>
+        <a class="load-more-filter <?php if($offset >= $total_posts) echo "hidden"; ?>" href="#"><?php esc_html_e('Load More', 'kernutt'); ?></a>
     </div>
 
 </div>

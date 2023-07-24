@@ -24,9 +24,16 @@ $excerpt = get_the_excerpt();
     <?php endif; ?>
 
     <?php if ($excerpt) :
-          $trimed_excerpt = wp_trim_words($excerpt, 100, "...");
+         if (strlen($excerpt) <= 100){
+            // Outputs the whole post content
+           $trimmed_excerpt = $excerpt;
+        }else{
+            $trimmed_excerpt = substr($excerpt, 0, strpos($excerpt, ' ', 100));
+            $trimmed_excerpt.="...";
+        }
+
           $single_url = "<a class='post-link' href='".get_the_permalink()."'>".__('see more.')." </a>";
-          $excerpt = sprintf("%s %s", $trimed_excerpt, $single_url );
+          $excerpt = sprintf("%s %s", $trimmed_excerpt, $single_url );
           ?>
 
         <div class="entry-content"> <?php echo $excerpt;  ?> </div>

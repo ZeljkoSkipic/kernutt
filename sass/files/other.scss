@@ -283,6 +283,28 @@
 		@include limbo-max {
 			padding-top: 0;
 		}
+		.load-more-filter  {
+			background-color: #3B3733;
+		font-size: 13px;
+		color: #fff;
+		padding: 10px 12px !important;
+		text-transform: uppercase;
+		line-height: 32px;
+		border: none !important;
+		border-radius: 3px;
+		transition: .3s all;
+		&:hover {
+			background-color: #D7D7D7;
+    		color: #3B3733;
+		}
+		}
+		.post-link {
+			color: #000;
+			&:hover {
+				color: #B26C26;
+				font-weight: 700;
+			}
+		}
 	}
 	.archive-hero {
 		background-color: #ced1d2;
@@ -431,6 +453,9 @@
 		background-color: #fff;
 		position: relative;
 		padding-right: 25px;
+		@include limbo-max {
+			margin-left: 0;
+		}
 		.filter_panel_e_delete {
 			cursor: pointer;
 			margin-left: 8px;
@@ -473,16 +498,7 @@
 	@include tab-only {
 		width: 500px;
 	}
-	/* @include tab-max {
-		margin-top: 50px;
-	} */
-	@include limbo-max {
-		order: 3;
-	}
-	/* @include limbo-max {
-		top: 100px;
-		position: relative;
-	} */
+
 	@include mob-only {
 		flex-direction: column;
 		width: 100%;
@@ -491,7 +507,7 @@
 		margin-right: 20px;
 		height: fit-content;
 		background-color: #fff;
-		@include tab-max {
+		@include limbo-max {
 			margin-bottom: 10px;
 			&:last-child {
 				margin-right: 0;
