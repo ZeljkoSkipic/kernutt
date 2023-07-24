@@ -16,6 +16,4 @@ $(".lb_close").click(function () {
 	$('body').removeClass('no_overflow');
 });
 
-
-
   });

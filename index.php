@@ -127,24 +127,7 @@ if ($categories_children_url) {
 
 <div class="posts_grid">
     <div class="posts_filters">
-
         <div class="filter-wrapper">
-            <div class="arrows">
-
-                <svg class="slick-arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <g>
-                        <path d="M12,2A10,10,0,1,0,22,12,10.011,10.011,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,12,20Z" />
-                        <polygon points="13.293 7.293 8.586 12 13.293 16.707 14.707 15.293 11.414 12 14.707 8.707 13.293 7.293" />
-                    </g>
-                </svg>
-                <svg class="slick-arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <g>
-                        <path d="M12,2A10,10,0,1,0,22,12,10.011,10.011,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,12,20Z" />
-                        <polygon points="9.293 8.707 12.586 12 9.293 15.293 10.707 16.707 15.414 12 10.707 7.293 9.293 8.707" />
-                    </g>
-                </svg>
-
-            </div>
             <div class="posts_filters_panel">
 
             </div>
@@ -157,11 +140,11 @@ if ($categories_children_url) {
                 <div class="posts_filter">
                     <div class="posts_filter_top parent <?php foreach ($media_type_categories as $child_media_category) {
 
-                                                            if ($categories_children_url && in_array($child_media_category->term_id, $categories_children_url)) {
-                                                                echo "open_init";
-                                                                break;
-                                                            }
-                                                        } ?>">
+					if ($categories_children_url && in_array($child_media_category->term_id, $categories_children_url)) {
+						echo "open_init";
+						break;
+					}
+				} ?>">
                         <?php esc_html_e('Filter by medium', 'kernutt'); ?>
                     </div>
                     <div style="display: none;" class="posts_filter_bottom media_cat">
@@ -191,12 +174,12 @@ if ($categories_children_url) {
 
             <div class="posts_filter content_filter">
                 <div class="posts_filter_top child <?php if ($categories) foreach ($categories as $cat) {
-                                                        if ($categories_url && in_array($cat->term_id, $categories_url)) {
-                                                            echo "open_init";
-                                                            break;
-                                                        }
-                                                    }  ?>">
-                    <?php esc_html_e('Filter by content type', 'kernutt'); ?>
+					if ($categories_url && in_array($cat->term_id, $categories_url)) {
+						echo "open_init";
+						break;
+					}
+				}  ?>">
+                    <?php esc_html_e('Filter by topic', 'kernutt'); ?>
                 </div>
                 <div style="display: none;" class="posts_filter_bottom">
 
@@ -258,7 +241,7 @@ if ($categories_children_url) {
 </div>
 
 <div class="ks_lightbox">
-	<span class="lb_close">Close</span>
+	<span class="lb_close">X</span>
 	<div class="et_pb_row">
 		<?php the_field('embed_code', 'option'); ?>
 	</div>

@@ -115,29 +115,6 @@ jQuery(function ($) {
   var selectedCategoriesChildren = [];
   var controller = null;
 
-  // Init Slick Slider
-
-  $('.posts_filters_panel').slick({
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    infinite: false,
-    prevArrow: $('.slick-arrow-right'),
-    nextArrow: $('.slick-arrow-left'),
-    responsive: [{
-      breakpoint: 798,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3
-      }
-    }, {
-      breakpoint: 580,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }]
-  });
-
   // Sync params with url function
 
   var syncParamsWithUrl = function syncParamsWithUrl() {
@@ -183,9 +160,7 @@ jQuery(function ($) {
         var checkbox = $('#' + catID + '');
         visualElem.attr('data-term-id', checkbox.val());
         visualElem.prepend($('label[for="' + checkbox.val() + '"]').text());
-        $('.posts_filters_panel').slick("slickAdd", visualElem);
-
-        // filterPanel.append(visualElem);
+        filterPanel.append(visualElem);
       });
     }
 
@@ -199,19 +174,14 @@ jQuery(function ($) {
         visualElem.attr('data-term-id', checkbox.val());
         visualElem.prepend($('label[for="' + checkbox.val() + '"]').text());
         var parent = $('.filter_panel_e[data-term-id="' + selectedCategoriesChildren[key].parentID + '"]');
-        var slickIndexParent = parseInt(parent.attr('data-slick-index'));
         if (parent.length !== 0) {
-          $('.posts_filters_panel').slick("slickAdd", visualElem, slickIndexParent);
-
-          // parent.after(visualElem);
+          parent.after(visualElem);
         } else {
-          $('.posts_filters_panel').slick("slickAdd", visualElem);
-          // filterPanel.append(visualElem)
+          filterPanel.append(visualElem);
         }
       });
     }
   };
-
   var visualPanelDelete = function visualPanelDelete(e) {
     var current = $(e.currentTarget);
     var currentID = current.closest('.filter_panel_e').data('term-id');
