@@ -28,7 +28,7 @@ $excerpt = get_the_excerpt();
             // Outputs the whole post content
            $trimmed_excerpt = $excerpt;
         }else{
-            $trimmed_excerpt = substr($excerpt, 0, strpos($excerpt, ' ', 100));
+            $trimmed_excerpt = substr($excerpt, 0, strpos($excerpt, ' ', 60));
             $trimmed_excerpt.="...";
         }
 

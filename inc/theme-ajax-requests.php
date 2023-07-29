@@ -106,7 +106,7 @@ function posts_posts_filter()
 
         $args = [
             'post_type'         => 'post',
-            'posts_per_page'    =>  10,
+            'posts_per_page'    =>  12,
             'orderby'           => 'date',
             'order'             => 'DESC',
             'post_status'       => 'publish'
@@ -236,7 +236,7 @@ function posts_posts_filter()
 
         $args = [
             'post_type'     => 'post',
-            'posts_per_page' => 10,
+            'posts_per_page' => 12,
             'orderby'       => 'date',
             'order'         => 'DESC',
             'post_status' => 'publish',

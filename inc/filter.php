@@ -7,7 +7,7 @@ function blog_filter( $query ) {
 
 		$categories = (isset($_GET['categories']) && $_GET['categories'] ? wp_strip_all_tags($_GET['categories']) : "");
         $categories_children = (isset($_GET['categoriesChildren']) && $_GET['categoriesChildren'] ? wp_strip_all_tags($_GET['categoriesChildren']) : "");
-        $offset = (isset($_GET['offset']) && $_GET['offset'] ? wp_strip_all_tags($_GET['offset']) : 10);
+        $offset = (isset($_GET['offset']) && $_GET['offset'] ? wp_strip_all_tags($_GET['offset']) : 12);
 
         // Media Type Category
 
