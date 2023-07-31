@@ -531,6 +531,19 @@ ul ul{list-style:circle !important}
 .filter_loader.disabled{display:none}
 .filter_loader .loader{width:48px;height:48px;border:5px solid #FFF;border-bottom-color:#f7d21e;border-radius:50%;display:inline-block;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-animation:rotation 1s linear infinite;animation:rotation 1s linear infinite;position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}
 .search-results body{padding-top:0 !important}
+.upload_container{background:-webkit-gradient(linear,left top,right top,from(#eee9d7),color-stop(50%,#eee9d7),color-stop(50%,#fff),to(#fff));background:linear-gradient(to right,#eee9d7 0,#eee9d7 50%,#fff 50%,#fff 100%)}
+.upload_container *{font-family:AvenirNext}
+.upload_container .upload_container_inner{background-color:#fff;padding:36px;margin-inline:auto}
+.upload_container .upload_container_inner .register_section:not(:last-of-type){margin-bottom:13px}
+.upload_container .upload_container_inner p{padding-bottom:12px;font-size:16px;line-height:22px}
+.upload_container .upload_container_inner a{font-weight:700;color:#000}
+.upload_container .upload_container_inner a:hover{color:#b26c26}
+.upload_container .upload_container_inner h2{font-size:25px;font-weight:600;padding-bottom:17px;font-style:italic}
+.upload_container .upload_container_inner .embed_row{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:end;-ms-flex-align:end;align-items:end}
+.upload_container .upload_container_inner .embed_row>div{width:49%}
+.upload_container .upload_container_inner .embed_row .right{padding-bottom:135px}
+.upload_container .upload_container_inner .embed_row .right a{font-weight:500}
+.upload_container .upload_container_inner .embed_row .right p{font-size:14px;line-height:20px;max-width:330px}
 #main-footer *{font-family:"AvenirNext"}
 #main-footer p,#main-footer a{color:#fff;font-size:16px;line-height:20px}
 #main-footer #footer-widgets{padding-top:44px;padding-bottom:13px}
@@ -817,6 +830,7 @@ body:not(.is-using-mouse) .fancybox__container :focus{-webkit-box-shadow:0 0 0 1
 .single-post #main-content .container #sidebar{width:calc(100% - 750px)}
 .blog .posts_grid{padding-top:100px}
 .posts_filters{position:absolute;top:0}
+.upload_container .upload_container_inner{width:90%;max-width:780px}
 }@media(min-width:1200px){.team_archive_grid .team_member{width:19%}
 .team_archive_grid .team_member:not(:nth-child(5n+5)){margin-right:calc(5% / 4)}
 .team_archive_grid .team_member.manager_member{margin-right:calc(5% / 4)}
