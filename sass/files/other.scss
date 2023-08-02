@@ -375,6 +375,22 @@
 	}
 	.ks_sp_author {
 		font-style: italic;
+		display: inline-block;
+		&:not(:last-of-type) {
+			&:after {
+				margin-left: 3px;
+				content: "&";
+				display: inline-block;
+			};
+		}
+		a {
+			color: #000;
+			&:hover {
+				color: #B36C26;
+				font-weight: 700;
+			}
+
+		}
 	}
 	.kn_sp_content {
 		font-size: 16px;
