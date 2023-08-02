@@ -332,3 +332,19 @@ function my_acf_json_load_point($paths)
     // return
     return $paths;
 }
+
+
+// Add class for menu confirm box
+
+add_filter('nav_menu_link_attributes', 'menu_item_confirm_box', 10, 3);
+
+function menu_item_confirm_box ($atts, $item, $args) {
+
+    $is_confirm_box = get_field('menu_confirm_box', $item);
+
+    if($is_confirm_box) {
+        $atts['class'] = 'menu-item-confirm-box';
+    }
+
+    return $atts;
+}

@@ -91,5 +91,19 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 	<?php endif; ?>
 
 	<?php wp_footer(); ?>
+	<div style="display: none;" class="menu-item-popup-notice">
+    <div class="menu-item-popup-notice__inner">
+      <span class="menu-item-popup-notice__close">&#10005;</span>
+      <div class="menu-item-popup-notice__icon">
+		<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#B26C26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+		</div>
+	  <p class="menu-item-popup-notice__mess kn_inner_title"><?php the_field('popup_title', 'option'); ?></p>
+      <p class="menu-item-popup-notice__description"><?php the_field('popup_text', 'option'); ?></p>
+      <div class="menu-item-popup-notice__buttons">
+	  	<a target="_blank" class="menu-item-popup-notice__continue" href="#"><?php the_field('btn_1_text', 'option'); ?></a>
+        <a class="menu-item-popup-notice__stay" href="#"><?php the_field('btn_2_text', 'option'); ?></a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

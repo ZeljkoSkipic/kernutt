@@ -92,6 +92,30 @@ jQuery(document).ready(function ($) {
     $('.ks_lightbox').fadeToggle();
     $('body').removeClass('no_overflow');
   });
+
+  /* External Link Popup */
+
+  var menuItemConfimrBox = $('.menu-item-confirm-box');
+  var popupNotice = $('.menu-item-popup-notice');
+  var stay = $('.menu-item-popup-notice__stay');
+  var close = $('.menu-item-popup-notice__close');
+  var continueUrl = $('.menu-item-popup-notice__continue');
+  var showConfirmBox = function showConfirmBox(e) {
+    e.preventDefault();
+    var itemUrl = $(e.currentTarget).attr('href');
+    popupNotice.find(continueUrl).attr('href', itemUrl);
+    popupNotice.show('.4s');
+  };
+  var hideConfirmBox = function hideConfirmBox(e) {
+    popupNotice.hide('.4s');
+    setTimeout(function () {
+      popupNotice.find(continueUrl).attr('href', '#');
+    }, 500);
+  };
+  menuItemConfimrBox.on('click', showConfirmBox);
+  stay.on('click', hideConfirmBox);
+  close.on('click', hideConfirmBox);
+  continueUrl.on('click', hideConfirmBox);
 });
 "use strict";
 

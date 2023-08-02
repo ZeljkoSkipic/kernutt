@@ -400,12 +400,14 @@
 /* Blog */
 
 .blog {
+	overflow: hidden;
 	.archive-hero__description {
 		a {
 			color: #000;
+			font-weight: 700;
 			&:hover {
 				color: #b36c26;
-				font-weight: 700;
+
 			}
 		}
 	}
@@ -682,13 +684,15 @@
 			}
 		}
 		.posts_filter_bottom {
-			padding: 15px;
+			padding: 10px 15px 15px;
 			border: 2px solid #b3b3b3;
 			border-top: none;
 
 			label {
 				position: relative;
 				cursor: pointer;
+				line-height: 1.1;
+				margin-top: 10px;
 				&:before {
 					content: "";
 					display: block;
@@ -696,7 +700,7 @@
 					height: 17px;
 					position: absolute;
 					left: -18px;
-					top: 2px;
+					top: -2px;
 					background-image: url(assets/icons/circle.svg);
 					background-size: 15px;
 					background-position: bottom left;
@@ -707,6 +711,7 @@
 			.child-cat {
 				padding-left: 14px;
 				font-size: 14px;
+
 				label {
 					&:before {
 						top: -1px;
@@ -909,5 +914,77 @@
 				}
 			}
 		}
+	}
+}
+
+
+/* External Link Popup */
+
+.menu-item-popup-notice {
+	background-color: rgba(45, 42, 38, .6);
+	z-index: 99999;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.menu-item-popup-notice__icon {
+		margin-bottom: 10px;
+	}
+	.menu-item-popup-notice__close {
+		align-self: flex-end;
+		margin-top: -20px;
+		margin-right: -10px;
+		cursor: pointer;
+	}
+	.menu-item-popup-notice__inner {
+		background-color: #fff;
+		padding: 35px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		max-width: 350px;
+		width: 90%;
+	}
+	.notice__description {
+		font-size: 16px;
+	}
+	.menu-item-popup-notice__buttons {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		margin-top: 10px;
+	}
+	.menu-item-popup-notice__stay {
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 13px;
+		color: #000;
+		border: 2px solid #B26C26!important;
+		padding: 10px 20px;
+		border: none;
+		border-radius: 10px;
+		margin: 10px 0 10px 10px;
+		min-width: 110px;
+	}
+	.menu-item-popup-notice__continue {
+		margin: 10px 0 10px 0;
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 13px;
+		color: #fff;
+		background-color: #B26C26;
+		padding: 10px 20px;
+		border: none;
+		min-width: 110px;
+		border-radius: 10px;
 	}
 }
