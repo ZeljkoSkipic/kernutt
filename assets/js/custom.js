@@ -104,10 +104,10 @@ jQuery(document).ready(function ($) {
     e.preventDefault();
     var itemUrl = $(e.currentTarget).attr('href');
     popupNotice.find(continueUrl).attr('href', itemUrl);
-    popupNotice.show('.4s');
+    popupNotice.fadeIn('.4s');
   };
   var hideConfirmBox = function hideConfirmBox(e) {
-    popupNotice.hide('.4s');
+    popupNotice.fadeOut('.4s');
     setTimeout(function () {
       popupNotice.find(continueUrl).attr('href', '#');
     }, 500);

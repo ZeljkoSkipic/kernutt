@@ -1,7 +1,16 @@
-<?php get_header(); ?>
+<?php
+
+/*
+Template Name: Basic
+Template Post Type: post
+*/
+
+
+get_header(); ?>
 
 <div id="main-content">
 	<div class="container clearfix">
+		<div class="empty"></div>
 		<div id="left-area">
 			<h1><?php the_title(); ?></h1>
 

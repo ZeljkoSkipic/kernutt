@@ -2,7 +2,7 @@
 
 if ( ! defined( 'T_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'T_VERSION', '2.0.0' );
+	define( 'T_VERSION', '3.0.0' );
 }
 
 // Include Files

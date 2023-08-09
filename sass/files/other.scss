@@ -274,9 +274,12 @@
 
 /* Single Post */
 
-.single-post {
-
+.single-post.post-template-single-basic {
 	#main-content {
+		@media (min-width: 981px) {
+			padding-inline: 56px;
+
+		}
 		background: linear-gradient(
 			to right,
 			#EEE9D7 0%,
@@ -290,32 +293,42 @@
 		}
 		.container {
 			background-color: #fff;
-			padding: 36px 0!important;
-			width: 90%;
-			max-width: 1180px;
+			padding: 0!important;
+			max-width: 1488px;
+			width: 100%;
 			display: flex;
-			@include limbo-max {
+			@media (max-width: 980px) {
 				flex-direction: column;
 				width: 100%;
 			}
 			&::before {
 				display: none;
 			}
+			.empty {
+				@media (min-width: 981px) {
+					width: 30%;
+					background-color: #EEE9D7;
+				}
+				@media (max-width: 980px) {
+					display: none;
+				}
+			}
 			#left-area {
-				padding: 0 36px;
-				@include limbo-max {
+				padding: 36px;
+				@media (max-width: 980px){
 					width: 100%;
 					border-bottom: 1px solid #B36C26;
 					padding-bottom: 36px;
+					padding-inline: 56px;
 				}
-				@include desk-min {
+				@media (min-width: 981px) {
 					border-right: 1px solid #B36C26;
-					width: 750px;
+					width: 40%;
 
 				}
 			}
 			#sidebar {
-				padding: 0 36px!important;
+				padding: 36px!important;
 				.widget_block {
 					margin-bottom: 0;
 				}
@@ -324,7 +337,6 @@
 				}
 				h3 {
 					color: #B36C26;
-					font-style: italic;
 					margin-bottom: 0;
 					font-size: 25px;
 					line-height: 28px;
@@ -344,12 +356,13 @@
 						font-weight: 700;
 					}
 				}
-				@include limbo-max {
+				@media (max-width: 980px) {
 					width: 100%;
 					padding-top: 36px!important;
+					padding-inline: 56px!important;
 				}
-				@include desk-min {
-					width: calc(100% - 750px);
+				@media (min-width: 981px) {
+					width: 30%;
 				}
 				.sidebar_button a {
 					background-color: #B36C26;
@@ -359,7 +372,6 @@
 					border-radius: 4px;
 					margin-top: 30px;
 					text-transform: uppercase;
-					font-style: italic;
 					&:hover {
 						font-weight: 500;
 					}
@@ -370,7 +382,6 @@
 	h1 {
 		font-size: 25px;
 		font-weight: 600;
-		font-style: italic;
 		line-height: 28px;
 	}
 	.ks_sp_author {
@@ -379,7 +390,7 @@
 		&:not(:last-of-type) {
 			&:after {
 				margin-left: 3px;
-				content: "&";
+				content: "and";
 				display: inline-block;
 			};
 		}
@@ -909,7 +920,6 @@
 			font-size: 25px;
 			font-weight: 600;
 			padding-bottom: 17px;
-			font-style: italic;
 		}
 		.embed_row {
 			display: flex;
@@ -949,42 +959,47 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	.kn_inner_title {
+		color: var(--color-2);
+	}
 	.menu-item-popup-notice__icon {
 		margin-bottom: 10px;
 	}
 	.menu-item-popup-notice__close {
 		align-self: flex-end;
-		margin-top: -20px;
-		margin-right: -10px;
+		margin-top: -30px;
+		margin-right: -20px;
 		cursor: pointer;
 	}
 	.menu-item-popup-notice__inner {
 		background-color: #fff;
-		padding: 35px;
+		padding: 56px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		max-width: 350px;
+		max-width: 370px;
 		width: 90%;
 	}
-	.notice__description {
+	.menu-item-popup-notice__description {
 		font-size: 16px;
+		font-weight: 500;
+		line-height: 22px;
 	}
 	.menu-item-popup-notice__buttons {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		margin-top: 10px;
+		margin-top: 20px;
 	}
 	.menu-item-popup-notice__stay {
 		text-transform: uppercase;
 		font-weight: 600;
 		font-size: 13px;
-		color: #000;
-		border: 2px solid #B26C26!important;
+		color: #3B3733;
+		border: 2px solid #3B3733!important;
 		padding: 10px 20px;
 		border: none;
 		border-radius: 10px;
@@ -997,7 +1012,7 @@
 		font-weight: 600;
 		font-size: 13px;
 		color: #fff;
-		background-color: #B26C26;
+		background-color: #3B3733;
 		padding: 10px 20px;
 		border: none;
 		min-width: 110px;
