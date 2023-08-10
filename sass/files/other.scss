@@ -326,6 +326,22 @@
 					width: 40%;
 
 				}
+				.post_btn_wrap {
+					width: 100%;
+					text-align: center;
+				}
+				.post_pdf {
+					background-color: #B36C26;
+					display: inline-flex;
+					padding: 10px 14px;
+					color: #fff!important;
+					border-radius: 4px;
+					margin-top: 30px;
+					text-transform: uppercase;
+					&:hover {
+						font-weight: 500;
+					}
+				}
 			}
 			#sidebar {
 				padding: 36px!important;

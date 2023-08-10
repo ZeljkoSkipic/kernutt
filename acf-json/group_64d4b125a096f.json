@@ -1,13 +1,13 @@
 {
-    "key": "group_64ca30a2cb5cb",
-    "title": "Post: Before Content",
+    "key": "group_64d4b125a096f",
+    "title": "Post: After Content",
     "fields": [
         {
-            "key": "field_64ca30a370e77",
-            "label": "Contributors",
-            "name": "contributors",
+            "key": "field_64d4b12602c72",
+            "label": "PDF",
+            "name": "pdf",
             "aria-label": "",
-            "type": "relationship",
+            "type": "link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,18 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "team"
-            ],
-            "post_status": "",
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "return_format": "object",
-            "min": "",
-            "max": "",
-            "elements": ""
+            "return_format": "array"
         }
     ],
     "location": [
@@ -40,7 +29,7 @@
         ]
     ],
     "menu_order": 0,
-    "position": "acf_after_title",
+    "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -48,5 +37,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1691660656
+    "modified": 1691660628
 }
