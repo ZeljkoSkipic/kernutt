@@ -275,6 +275,9 @@
 /* Single Post */
 
 .single-post.post-template-single-basic {
+	table {
+		width: 100%;
+	}
 	#main-content {
 		@media (min-width: 981px) {
 			padding-inline: 56px;

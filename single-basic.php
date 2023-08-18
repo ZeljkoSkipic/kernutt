@@ -6,13 +6,19 @@ Template Post Type: post
 */
 
 
-get_header(); ?>
+get_header();
+$custom_title = get_field('custom_title');
+?>
 
 <div id="main-content">
 	<div class="container clearfix">
 		<div class="empty"></div>
 		<div id="left-area">
-			<h1><?php the_title(); ?></h1>
+			<h1>
+				<?php if( $custom_title ) {
+					echo $custom_title; } else {
+					 the_title();
+				}?></h1>
 
 			<?php
 			$contributors = get_field('contributors');

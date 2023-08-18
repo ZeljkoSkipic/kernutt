@@ -455,6 +455,7 @@ ul ul{list-style:circle !important}
 .kn_awards_page .year.year2021:nth-child(3) .award{border:0}
 .kn_awards_page .year.year2021:nth-child(4){width:50%}
 .kn_awards_page .year.year2020,.kn_awards_page .year.year2019,.kn_awards_page .year.year2018,.kn_awards_page .year.year2017,.kn_awards_page .year.year2016{width:25%}
+.single-post.post-template-single-basic table{width:100%}
 .single-post.post-template-single-basic #main-content{background:-webkit-gradient(linear,left top,right top,from(#eee9d7),color-stop(50%,#eee9d7),color-stop(50%,#fff),to(#fff));background:linear-gradient(to right,#eee9d7 0,#eee9d7 50%,#fff 50%,#fff 100%)}
 .single-post.post-template-single-basic #main-content *{font-family:AvenirNext}
 .single-post.post-template-single-basic #main-content .container{background-color:#fff;padding:0 !important;max-width:1488px;width:100%;display:-webkit-box;display:-ms-flexbox;display:flex}

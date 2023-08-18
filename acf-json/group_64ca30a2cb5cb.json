@@ -3,6 +3,26 @@
     "title": "Post: Before Content",
     "fields": [
         {
+            "key": "field_64db4c58c80eb",
+            "label": "Custom Title",
+            "name": "custom_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "If you wish to display a title that is different from the page title use this field.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_64ca30a370e77",
             "label": "Contributors",
             "name": "contributors",
@@ -48,5 +68,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1691660656
+    "modified": 1692093592
 }
