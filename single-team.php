@@ -18,9 +18,6 @@ if ($selected_user) {
     ));
 }
 ?>
-	<div class="kn_team_hero">
-		<?php the_post_thumbnail(); ?>
-	</div>
 	<div class="container">
 		<div id="content-area" class="clearfix">
 			<div class="team_member">

@@ -78,6 +78,16 @@
 			margin-bottom: 4px;
 			color: #000;
 		}
+		.sp_meta {
+			padding: 0 20px 10px 20px;
+			a {
+				color: #000;
+				&:hover {
+					color: #B26C26;
+					font-weight: 700;
+				}
+			}
+		}
 		.cats {
 			padding: 0 20px 5px;
 			a {

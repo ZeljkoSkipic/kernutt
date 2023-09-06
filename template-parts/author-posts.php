@@ -28,6 +28,26 @@ $output = '';
 
     <?php endif; ?>
 
+	<div class="sp_meta">
+
+	<?php
+		if( $contributors ): ?>
+			<span>by</span>
+			<?php foreach( $contributors as $contributor ):
+				$permalink = get_permalink( $contributor->ID );
+				$title = get_the_title( $contributor->ID );
+				?>
+					<span class="ks_sp_author"><a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a></span>
+					|
+			<?php endforeach; ?>
+		<?php endif; ?>
+		<?php if( !$contributors ) : ?>
+			<span class="ks_sp_author">by Kernutt Stokes</span>
+		<?php endif; ?>
+        <time datetime="<?php echo get_the_date('c'); ?>" itemprop="datePublished"><?php echo get_the_date(); ?></time>
+
+	</div>
+
     <?php if ($excerpt) : ?>
 
         <div class="entry-content">
