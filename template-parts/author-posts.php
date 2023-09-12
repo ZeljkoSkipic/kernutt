@@ -4,6 +4,7 @@ $title = get_the_title();
 $image = get_the_post_thumbnail(get_the_ID(), 'large');
 $excerpt = get_the_excerpt(get_the_ID());
 $categories = get_the_category();
+$contributors = get_field('contributors');
 $separator = ' | ';
 $output = '';
 
@@ -42,7 +43,7 @@ $output = '';
 			<?php endforeach; ?>
 		<?php endif; ?>
 		<?php if( !$contributors ) : ?>
-			<span class="ks_sp_author">by Kernutt Stokes</span>
+			<span class="ks_sp_author">by Kernutt Stokes</span> |
 		<?php endif; ?>
         <time datetime="<?php echo get_the_date('c'); ?>" itemprop="datePublished"><?php echo get_the_date(); ?></time>
 

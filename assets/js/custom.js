@@ -102,9 +102,18 @@ jQuery(document).ready(function ($) {
   var continueUrl = $('.menu-item-popup-notice__continue');
   var showConfirmBox = function showConfirmBox(e) {
     e.preventDefault();
-    var itemUrl = $(e.currentTarget).attr('href');
-    popupNotice.find(continueUrl).attr('href', itemUrl);
-    popupNotice.fadeIn('.4s');
+    var form = $(e.currentTarget).prev('form');
+    if (form.length) {
+      popupNotice.fadeIn('.4s');
+      continueUrl.on('click', function (e) {
+        e.preventDefault();
+        form[0].submit();
+      });
+    } else {
+      var itemUrl = $(e.currentTarget).attr('href');
+      popupNotice.find(continueUrl).attr('href', itemUrl);
+      popupNotice.fadeIn('.4s');
+    }
   };
   var hideConfirmBox = function hideConfirmBox(e) {
     popupNotice.fadeOut('.4s');
