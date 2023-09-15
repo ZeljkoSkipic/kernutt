@@ -245,7 +245,7 @@ ul ul{list-style:circle !important}
 .about-history-section .et_pb_gutters1 .et_pb_column_1_2 .et_pb_text{padding:40px 56px}
 .about-history-section .et_pb_gutters1 .et_pb_column_1_2 .et_pb_image{margin:0;width:100%;height:100%}
 .about-history-section .et_pb_gutters1 .et_pb_column_1_2 .et_pb_image_wrap{width:100%;height:100%}
-.about-history-section .et_pb_gutters1 .et_pb_column_1_2 .et_pb_image_wrap img{width:100%;height:100%;-o-object-fit:contain;object-fit:contain}
+.about-history-section .et_pb_gutters1 .et_pb_column_1_2 .et_pb_image_wrap img{width:100%;height:100%;-o-object-fit:cover;object-fit:cover;-o-object-position:top;object-position:top}
 .about-history-section .et_pb_gutters1 .et_pb_column_1_2 p{font-family:"AvenirNext",sans-serif;font-size:16px;line-height:22px;font-weight:500}
 .about-history-section .et_pb_gutters1 .et_pb_column_1_2 p:not(:last-child){padding-bottom:8px}
 .about-history-section .et_pb_row.et_pb_equal_columns{padding:0}
@@ -256,7 +256,7 @@ ul ul{list-style:circle !important}
 .about-partners-section .et_pb_column:nth-child(2){background-color:#3b3733;padding:20px 15px 35px}
 .about-partners-section .et_pb_image{height:100%;background-color:#3b3733}
 .about-partners-section .et_pb_image .et_pb_image_wrap{width:calc(100% - 56px);height:100%}
-.about-partners-section .et_pb_image .et_pb_image_wrap img{width:100%;height:100%;-o-object-fit:contain;object-fit:contain}
+.about-partners-section .et_pb_image .et_pb_image_wrap img{width:100%;height:100%;-o-object-fit:cover;object-fit:cover}
 .about-partners-section .et_pb_text h2{font-family:"AvenirNext",sans-serif;font-size:25px}
 .about-partners-section .et_pb_text h2 strong{font-weight:600}
 .about-partners-section .et_pb_text .document_vyy0c8{font-family:"AvenirNext",sans-serif;font-size:16px;line-height:20px;font-weight:500;margin-bottom:16px}
@@ -827,9 +827,9 @@ body:not(.is-using-mouse) .fancybox__container :focus{-webkit-box-shadow:0 0 0 1
 .team_member .tm_middle,.team_member .of_middle,.office_location .tm_middle,.office_location .of_middle{-webkit-box-flex:40%;-ms-flex:40% 0 0;flex:40% 0 0}
 .team_member .of_right,.office_location .of_right{padding-left:0}
 .about-history-section .et_pb_gutters1 .et_pb_column_1_2:first-child{min-height:320px}
-.about-history-section .et_pb_gutters1 .et_pb_column_1_2:nth-child(2){height:320px}
-.about-partners-section .et_pb_column:first-child{height:352px}
-.about-partners-section .et_pb_column:nth-child(2){min-height:352px}
+.about-history-section .et_pb_gutters1 .et_pb_column_1_2:nth-child(2){position:absolute;right:0;top:0;bottom:0}
+.about-partners-section .et_pb_column:first-child{position:absolute;left:0;top:0;bottom:0}
+.about-partners-section .et_pb_column:nth-child(2){min-height:352px;margin-left:50%}
 .single-post.post-template-single-basic #main-content{padding-inline:56px}
 .single-post.post-template-single-basic #main-content .container .empty{width:25%;background-color:#eee9d7}
 .single-post.post-template-single-basic #main-content .container #left-area{border-right:1px solid #b36c26;width:50%}
