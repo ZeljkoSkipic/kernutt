@@ -947,6 +947,8 @@ body .mobile_nav .mobile_menu_bar::before{color:#2d2a25}
 .home_hero .home_hero_text{padding:50px 20px}
 .single-industry .kn_industry_main{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
 .single-industry .kn_industry_sec_2 .kn_is_2_col_3{width:100%;margin-top:35px}
+.about-history-section .et_pb_gutters1 .et_pb_column_1_2 .et_pb_image_wrap img{aspect-ratio:16 / 9}
+.about-partners-section .et_pb_image .et_pb_image_wrap img{aspect-ratio:16 / 9}
 .single-services .service-top .service-top__left{-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%;padding-right:0;padding-bottom:30px}
 .single-services .form-service .form-service__left{padding:20px 0}
 .single-services .form-service .form-service__mid{padding:0;width:100%}
